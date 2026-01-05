@@ -77,43 +77,46 @@ export default function TechnologyPage() {
   });
 
   return (
-    <div className="bg-[#020202] min-h-screen text-white font-sans selection:bg-blue-500/30" ref={containerRef}>
+    <div className="bg-[#030303] min-h-screen text-white font-sans selection:bg-blue-500/30" ref={containerRef}>
       
-      {/* Global Background Grid */}
-      <div className="fixed inset-0 z-0 pointer-events-none">
-        <div className="absolute inset-0 bg-[linear-gradient(to_right,#80808012_1px,transparent_1px),linear-gradient(to_bottom,#80808012_1px,transparent_1px)] bg-size-[40px_40px] mask-[radial-gradient(ellipse_80%_50%_at_50%_0%,#000_70%,transparent_100%)]" />
-      </div>
-
       {/* Hero Section */}
-      <section className="h-[90vh] flex flex-col items-center justify-center relative overflow-hidden z-10">
-        <div className="absolute inset-0 bg-linear-to-b from-blue-900/10 via-transparent to-transparent opacity-50" />
+      <section className="relative z-10 pt-24 pb-20 px-6 min-h-[80vh] flex flex-col justify-center overflow-hidden">
+        {/* --- Background System --- */}
+        <div className="absolute inset-0 z-0 pointer-events-none">
+          <div className="absolute inset-0 bg-[url('https://grainy-gradients.vercel.app/noise.svg')] opacity-20" />
+          <div className="absolute top-[-10%] left-[-10%] w-[800px] h-[800px] bg-purple-900/20 rounded-full blur-[120px] mix-blend-screen animate-pulse" style={{ animationDuration: '4s' }} />
+          <div className="absolute bottom-[-10%] right-[-10%] w-[600px] h-[600px] bg-blue-900/20 rounded-full blur-[120px] mix-blend-screen animate-pulse" style={{ animationDuration: '6s' }} />
+          <div className="absolute top-[40%] left-[30%] w-[500px] h-[500px] bg-orange-900/10 rounded-full blur-[100px] mix-blend-screen animate-pulse" style={{ animationDuration: '8s' }} />
+          <div className="absolute inset-0" style={{ backgroundImage: 'radial-gradient(white 1px, transparent 1px)', backgroundSize: '50px 50px', opacity: 0.1 }} />
+        </div>
         
-        <motion.div 
-          initial={{ opacity: 0, y: 20 }}
-          animate={{ opacity: 1, y: 0 }}
-          transition={{ duration: 0.8 }}
-          className="text-center px-6 relative z-10"
-        >
-          <div className="inline-flex items-center gap-2 px-3 py-1 rounded-full bg-blue-500/10 border border-blue-500/20 mb-8 backdrop-blur-md">
-            <span className="relative flex h-2 w-2">
-              <span className="animate-ping absolute inline-flex h-full w-full rounded-full bg-blue-400 opacity-75"></span>
-              <span className="relative inline-flex rounded-full h-2 w-2 bg-blue-500"></span>
-            </span>
-            <span className="text-xs font-medium tracking-widest text-blue-400 uppercase">System Architecture v2.0</span>
-          </div>
+        <div className="container mx-auto text-center max-w-5xl">
+          <motion.div 
+            initial={{ opacity: 0, y: 20 }}
+            animate={{ opacity: 1, y: 0 }}
+            transition={{ duration: 0.8 }}
+          >
+            <div className="inline-flex items-center gap-2 px-3 py-1 rounded-full bg-white/5 border border-white/10 mb-8 backdrop-blur-md">
+              <span className="relative flex h-2 w-2">
+                <span className="animate-ping absolute inline-flex h-full w-full rounded-full bg-blue-400 opacity-75"></span>
+                <span className="relative inline-flex rounded-full h-2 w-2 bg-blue-500"></span>
+              </span>
+              <span className="text-xs font-medium text-gray-300 tracking-wider uppercase">System Architecture v2.0</span>
+            </div>
 
-          <h1 className="text-6xl md:text-8xl lg:text-9xl font-bold tracking-tighter mb-8 text-white">
-            NEURAL<br />
-            <span className="text-transparent bg-clip-text bg-linear-to-r from-blue-500 via-purple-500 to-blue-500 animate-gradient-x">
-              INFRASTRUCTURE
-            </span>
-          </h1>
-          
-          <p className="text-xl text-gray-400 max-w-2xl mx-auto leading-relaxed">
-            The nervous system of the modern enterprise. <br/>
-            Built for speed, security, and infinite scalability.
-          </p>
-        </motion.div>
+            <h1 className="text-5xl md:text-7xl lg:text-8xl font-bold text-white tracking-tight mb-8">
+              NEURAL<br />
+              <span className="text-transparent bg-clip-text bg-gradient-to-r from-blue-400 via-purple-500 to-blue-500 animate-gradient-x">
+                INFRASTRUCTURE
+              </span>
+            </h1>
+            
+            <p className="text-xl text-gray-400 max-w-3xl mx-auto leading-relaxed">
+              The nervous system of the modern enterprise. <br/>
+              Built for speed, security, and infinite scalability.
+            </p>
+          </motion.div>
+        </div>
 
         {/* Scroll Indicator */}
         <motion.div 

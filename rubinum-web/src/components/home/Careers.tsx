@@ -3,6 +3,7 @@
 import { motion } from 'framer-motion';
 import { ArrowRight, Code2, Terminal, Cpu, Sparkles } from 'lucide-react';
 import { cn } from '@/lib/utils';
+import Link from 'next/link';
 
 const positions = [
   {
@@ -51,7 +52,7 @@ export function Careers() {
           <motion.div
             initial={{ opacity: 0, y: 20 }}
             whileInView={{ opacity: 1, y: 0 }}
-            viewport={{ once: true }}
+            viewport={{ once: true, amount: 0.2 }}
             transition={{ duration: 0.6 }}
           >
             <h2 className="text-sm font-medium tracking-[0.3em] text-blue-400 uppercase mb-6">
@@ -68,7 +69,7 @@ export function Careers() {
           <motion.p 
             initial={{ opacity: 0, x: 20 }}
             whileInView={{ opacity: 1, x: 0 }}
-            viewport={{ once: true }}
+            viewport={{ once: true, amount: 0.2 }}
             transition={{ duration: 0.6, delay: 0.2 }}
             className="text-gray-400 max-w-md mt-8 md:mt-0 text-lg"
           >
@@ -78,26 +79,26 @@ export function Careers() {
 
         <div className="grid grid-cols-1 md:grid-cols-2 gap-6">
           {positions.map((position, index) => (
-            <motion.div
-              key={index}
-              initial={{ opacity: 0, y: 20 }}
-              whileInView={{ opacity: 1, y: 0 }}
-              viewport={{ once: true }}
-              transition={{ duration: 0.5, delay: index * 0.1 }}
-              className={cn(
-                "group relative p-8 rounded-3xl bg-zinc-900/50 backdrop-blur-md border border-white/10 transition-all duration-500 hover:bg-zinc-900/80",
-                position.border
-              )}
-            >
-              {/* Hover Gradient */}
-              <div className={cn(
-                "absolute inset-0 bg-gradient-to-br opacity-0 group-hover:opacity-100 transition-opacity duration-500 rounded-3xl",
-                position.gradient
-              )} />
+            <Link href="/career" key={index} className="block">
+              <motion.div
+                initial={{ opacity: 0, y: 20 }}
+                whileInView={{ opacity: 1, y: 0 }}
+                viewport={{ once: true, amount: 0.2 }}
+                transition={{ duration: 0.5, delay: index * 0.1 }}
+                className={cn(
+                  "group relative p-8 rounded-3xl bg-zinc-900/50 backdrop-blur-md border border-white/10 transition-all duration-500 hover:bg-zinc-900/80",
+                  position.border
+                )}
+              >
+                {/* Hover Gradient */}
+                <div className={cn(
+                  "absolute inset-0 bg-gradient-to-br opacity-0 group-hover:opacity-100 transition-opacity duration-500 rounded-3xl",
+                  position.gradient
+                )} />
 
-              <div className="relative z-10 flex items-start justify-between">
-                <div className="flex gap-4">
-                  <div className={cn(
+                <div className="relative z-10 flex items-start justify-between">
+                  <div className="flex gap-4">
+                    <div className={cn(
                     "w-12 h-12 rounded-xl bg-white/5 border border-white/10 flex items-center justify-center transition-colors group-hover:bg-white/10",
                     position.color
                   )}>
@@ -120,19 +121,22 @@ export function Careers() {
                 </div>
               </div>
             </motion.div>
+            </Link>
           ))}
         </div>
 
         <motion.div 
           initial={{ opacity: 0, y: 20 }}
           whileInView={{ opacity: 1, y: 0 }}
-          viewport={{ once: true }}
+          viewport={{ once: true, amount: 0.2 }}
           transition={{ delay: 0.4 }}
           className="mt-12 text-center"
         >
-          <button className="inline-flex items-center gap-2 text-white/70 hover:text-white transition-colors border-b border-white/20 hover:border-white pb-1">
-            View all open positions <ArrowRight className="w-4 h-4" />
-          </button>
+          <Link href="/career">
+            <button className="inline-flex items-center gap-2 text-white/70 hover:text-white transition-colors border-b border-white/20 hover:border-white pb-1">
+              View all open positions <ArrowRight className="w-4 h-4" />
+            </button>
+          </Link>
         </motion.div>
       </div>
     </section>

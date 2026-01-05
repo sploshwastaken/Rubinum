@@ -3,12 +3,20 @@
 import { useEffect, useState } from 'react';
 import { motion, AnimatePresence } from 'framer-motion';
 import { ArrowUp } from 'lucide-react';
+import { usePathname } from 'next/navigation';
 
 export function ScrollToTop() {
   const [isVisible, setIsVisible] = useState(false);
+  const pathname = usePathname();
 
   useEffect(() => {
     const toggleVisibility = () => {
+      // Only show on homepage
+      if (pathname !== '/') {
+        setIsVisible(false);
+        return;
+      }
+
       // Show button only when approaching the footer (last 1200px of the page)
       const distanceToBottom = document.documentElement.scrollHeight - (window.scrollY + window.innerHeight);
       
@@ -20,9 +28,11 @@ export function ScrollToTop() {
     };
 
     window.addEventListener('scroll', toggleVisibility);
+    // Check initially
+    toggleVisibility();
 
     return () => window.removeEventListener('scroll', toggleVisibility);
-  }, []);
+  }, [pathname]);
 
   const scrollToTop = () => {
     window.scrollTo({

@@ -31,7 +31,7 @@ export default function RootLayout({
         className={`${geistSans.variable} ${geistMono.variable} antialiased bg-black text-white`}
       >
         <Navbar />
-        <div className="relative z-10 mb-[500px] shadow-2xl rounded-b-3xl bg-transparent">
+        <div className="relative z-10 mb-[500px] shadow-2xl rounded-b-3xl bg-[#030303]">
           <main className="min-h-screen relative">
             {children}
           </main>

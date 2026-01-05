@@ -2,20 +2,52 @@
 
 import { useState, useEffect } from 'react';
 import Link from 'next/link';
+import { usePathname } from 'next/navigation';
 import { motion, AnimatePresence } from 'framer-motion';
 import { Menu, X } from 'lucide-react';
 import { cn } from '@/lib/utils';
 
 const navItems = [
+  { name: 'About Us', href: '/about' },
   { name: 'Technology', href: '/technology' },
-  { name: 'Services', href: '/#services' },
-  { name: 'Vision', href: '/#vision' },
-  { name: 'Contact', href: '/#contact' },
+  { name: 'Career', href: '/career' },
+  { name: 'Contact', href: '/contact' },
 ];
+
+function NavLink({ href, children }: { href: string; children: React.ReactNode }) {
+  const pathname = usePathname();
+  const isActive = pathname === href;
+  
+  return (
+    <Link 
+      href={href} 
+      className="relative group px-1 py-1"
+    >
+      <span className={cn(
+        "relative z-10 text-xs font-bold tracking-[0.15em] uppercase transition-colors duration-300",
+        isActive ? "text-white" : "text-gray-400 group-hover:text-white"
+      )}>
+        {children}
+      </span>
+      
+      {/* Active/Hover Indicator */}
+      <span className={cn(
+        "absolute -bottom-1 left-0 w-full h-px bg-gradient-to-r from-transparent via-blue-500 to-transparent transition-all duration-300 ease-out",
+        isActive ? "scale-x-100 opacity-100" : "scale-x-0 opacity-0 group-hover:scale-x-100 group-hover:opacity-100"
+      )} />
+      
+      {/* Subtle Glow for Active State */}
+      {isActive && (
+        <span className="absolute inset-0 bg-blue-500/10 blur-lg rounded-full -z-10" />
+      )}
+    </Link>
+  );
+}
 
 export function Navbar() {
   const [isScrolled, setIsScrolled] = useState(false);
   const [isMobileMenuOpen, setIsMobileMenuOpen] = useState(false);
+  const pathname = usePathname();
 
   useEffect(() => {
     const handleScroll = () => {
@@ -28,31 +60,32 @@ export function Navbar() {
   return (
     <nav
       className={cn(
-        'fixed top-0 left-0 right-0 z-50 transition-all duration-300 border-b border-transparent',
-        isScrolled ? 'bg-black/50 backdrop-blur-md border-white/10 py-4' : 'bg-transparent py-6'
+        'fixed top-0 left-0 right-0 z-50 transition-all duration-500 border-b border-transparent',
+        isScrolled ? 'bg-[#030303]/80 backdrop-blur-md border-white/5 py-4' : 'bg-transparent py-6'
       )}
     >
       <div className="container mx-auto px-6 flex items-center justify-between">
-        <Link href="/" className="text-2xl font-bold tracking-tighter text-white">
-          RUBINUM
+        <Link href="/" className="group relative flex items-center gap-2">
+          <div className="w-8 h-8 bg-gradient-to-br from-blue-600 to-purple-600 rounded-lg flex items-center justify-center text-white font-bold text-lg">
+            <span className="scale-x-[-1]">R</span>
+          </div>
+          <span className="text-xl font-bold tracking-tighter text-white group-hover:text-gray-200 transition-colors">
+            <span className="inline-block scale-x-[-1]">R</span>UBINUM
+          </span>
         </Link>
 
         {/* Desktop Menu */}
         <div className="hidden md:flex items-center space-x-8">
           {navItems.map((item) => (
-            <Link
-              key={item.name}
-              href={item.href}
-              className="text-sm font-medium text-gray-300 hover:text-white transition-colors uppercase tracking-widest"
-            >
+            <NavLink key={item.name} href={item.href}>
               {item.name}
-            </Link>
+            </NavLink>
           ))}
         </div>
 
         {/* Mobile Menu Button */}
         <button
-          className="md:hidden text-white"
+          className="md:hidden text-white p-2 hover:bg-white/5 rounded-lg transition-colors"
           onClick={() => setIsMobileMenuOpen(!isMobileMenuOpen)}
         >
           {isMobileMenuOpen ? <X /> : <Menu />}
@@ -63,22 +96,30 @@ export function Navbar() {
       <AnimatePresence>
         {isMobileMenuOpen && (
           <motion.div
-            initial={{ opacity: 0, y: -20 }}
-            animate={{ opacity: 1, y: 0 }}
-            exit={{ opacity: 0, y: -20 }}
-            className="absolute top-full left-0 right-0 bg-black/90 backdrop-blur-xl border-b border-white/10 p-6 md:hidden"
+            initial={{ opacity: 0, height: 0 }}
+            animate={{ opacity: 1, height: 'auto' }}
+            exit={{ opacity: 0, height: 0 }}
+            className="absolute top-full left-0 right-0 bg-[#030303] border-b border-white/10 overflow-hidden md:hidden"
           >
-            <div className="flex flex-col space-y-4">
-              {navItems.map((item) => (
-                <Link
-                  key={item.name}
-                  href={item.href}
-                  className="text-lg font-medium text-gray-300 hover:text-white transition-colors"
-                  onClick={() => setIsMobileMenuOpen(false)}
-                >
-                  {item.name}
-                </Link>
-              ))}
+            <div className="flex flex-col p-6 space-y-4">
+              {navItems.map((item) => {
+                const isActive = pathname === item.href;
+                return (
+                  <Link
+                    key={item.name}
+                    href={item.href}
+                    className={cn(
+                      "text-sm font-medium tracking-widest uppercase py-2 px-4 rounded-lg transition-all",
+                      isActive 
+                        ? "bg-white/10 text-white border border-white/10" 
+                        : "text-gray-400 hover:text-white hover:bg-white/5"
+                    )}
+                    onClick={() => setIsMobileMenuOpen(false)}
+                  >
+                    {item.name}
+                  </Link>
+                );
+              })}
             </div>
           </motion.div>
         )}

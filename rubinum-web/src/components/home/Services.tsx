@@ -4,6 +4,7 @@ import { motion, useMotionTemplate, useMotionValue } from 'framer-motion';
 import { useRef, MouseEvent } from 'react';
 import { Code2, Globe, Smartphone, Cloud, ArrowRight } from 'lucide-react';
 import { cn } from '@/lib/utils';
+import Link from 'next/link';
 
 const services = [
   {
@@ -54,7 +55,7 @@ function ServiceCard({ service, index }: { service: typeof services[0], index: n
       initial={{ opacity: 0, y: 20 }}
       whileInView={{ opacity: 1, y: 0 }}
       transition={{ duration: 0.5, delay: index * 0.1 }}
-      viewport={{ once: true }}
+      viewport={{ once: true, amount: 0.2 }}
       className={cn(
         "group relative p-8 rounded-3xl bg-zinc-900/50 backdrop-blur-md border border-white/10 transition-all duration-500 overflow-hidden flex flex-col justify-between",
         service.className,
@@ -88,10 +89,12 @@ function ServiceCard({ service, index }: { service: typeof services[0], index: n
         </div>
       </div>
 
-      <div className={cn("relative z-10 mt-8 flex items-center text-sm font-medium opacity-50 group-hover:opacity-100 transition-all duration-300", service.iconColor)}>
-        <span className="mr-2">Explore</span>
-        <ArrowRight className="w-4 h-4 transform group-hover:translate-x-1 transition-transform" />
-      </div>
+      <Link href="/contact" className="relative z-10 mt-8 inline-block">
+        <div className={cn("flex items-center text-sm font-medium opacity-50 group-hover:opacity-100 transition-all duration-300", service.iconColor)}>
+          <span className="mr-2">Explore</span>
+          <ArrowRight className="w-4 h-4 transform group-hover:translate-x-1 transition-transform" />
+        </div>
+      </Link>
     </motion.div>
   );
 }
@@ -106,7 +109,7 @@ export function Services() {
           <motion.div
             initial={{ opacity: 0, scale: 0.9 }}
             whileInView={{ opacity: 1, scale: 1 }}
-            viewport={{ once: true }}
+            viewport={{ once: true, amount: 0.2 }}
             className="inline-block mb-4 px-4 py-1.5 rounded-full border border-blue-500/30 bg-blue-500/10 text-sm text-blue-400"
           >
             Our Capabilities
@@ -114,7 +117,7 @@ export function Services() {
           <motion.h2 
             initial={{ opacity: 0, y: 20 }}
             whileInView={{ opacity: 1, y: 0 }}
-            viewport={{ once: true }}
+            viewport={{ once: true, amount: 0.2 }}
             className="text-4xl md:text-6xl font-bold text-white mb-6 tracking-tight"
           >
             Engineering <span className="text-transparent bg-clip-text bg-gradient-to-r from-blue-400 to-purple-400">Digital Excellence</span>
@@ -123,7 +126,7 @@ export function Services() {
             initial={{ opacity: 0, y: 20 }}
             whileInView={{ opacity: 1, y: 0 }}
             transition={{ delay: 0.2 }}
-            viewport={{ once: true }}
+            viewport={{ once: true, amount: 0.2 }}
             className="text-gray-400 text-lg leading-relaxed"
           >
             We combine cutting-edge technology with strategic thinking to deliver exceptional results across every digital touchpoint.

@@ -4,6 +4,7 @@ import { motion, useScroll, useTransform } from 'framer-motion';
 import { ArrowRight, Code2, Cpu, Globe, Zap, BarChart3, Users, Layers } from 'lucide-react';
 import { useRef } from 'react';
 import { cn } from '@/lib/utils';
+import Link from 'next/link';
 
 const stats = [
   { label: "Active Projects", value: "124+", icon: Layers, color: "text-blue-400" },
@@ -92,10 +93,12 @@ export function About() {
                 ))}
               </div>
 
-              <button className="group flex items-center gap-2 text-white px-6 py-3 rounded-full bg-white/5 border border-white/10 hover:bg-white/10 hover:border-white/20 transition-all">
-                <span>Read our Manifesto</span>
-                <ArrowRight className="w-4 h-4 group-hover:translate-x-1 transition-transform" />
-              </button>
+              <Link href="/about">
+                <button className="group flex items-center gap-2 text-white px-6 py-3 rounded-full bg-white/5 border border-white/10 hover:bg-white/10 hover:border-white/20 transition-all">
+                  <span>Read our Manifesto</span>
+                  <ArrowRight className="w-4 h-4 group-hover:translate-x-1 transition-transform" />
+                </button>
+              </Link>
             </motion.div>
           </div>
 

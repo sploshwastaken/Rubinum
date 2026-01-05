@@ -3,6 +3,7 @@
 import { motion, useScroll, useTransform } from 'framer-motion';
 import { ArrowUpRight, Cloud, Zap, ShieldCheck } from 'lucide-react';
 import { useRef } from 'react';
+import Link from 'next/link';
 
 const products = [
   {
@@ -58,19 +59,21 @@ export function Products() {
               <span className="text-transparent bg-clip-text bg-gradient-to-r from-white to-gray-500">Tomorrow</span>
             </h3>
           </motion.div>
-          <motion.button 
-            whileHover={{ x: 5 }}
-            className="hidden md:flex items-center gap-2 text-white border-b border-white/30 pb-1 hover:border-white transition-colors mt-8 md:mt-0"
-          >
-            View All Products <ArrowUpRight className="w-4 h-4" />
-          </motion.button>
+          <Link href="/technology">
+            <motion.button 
+              whileHover={{ x: 5 }}
+              className="hidden md:flex items-center gap-2 text-white border-b border-white/30 pb-1 hover:border-white transition-colors mt-8 md:mt-0"
+            >
+              View All Products <ArrowUpRight className="w-4 h-4" />
+            </motion.button>
+          </Link>
         </div>
 
         <div className="grid grid-cols-1 md:grid-cols-3 gap-8">
           {products.map((product, index) => (
-            <motion.div
-              key={product.id}
-              initial={{ opacity: 0, y: 50 }}
+            <Link href="/technology" key={product.id} className="block">
+              <motion.div
+                initial={{ opacity: 0, y: 50 }}
               whileInView={{ opacity: 1, y: 0 }}
               transition={{ duration: 0.5, delay: index * 0.2 }}
               viewport={{ once: true }}
@@ -110,6 +113,7 @@ export function Products() {
               {/* Decorative Glow */}
               <div className={`absolute -bottom-20 -right-20 w-64 h-64 bg-gradient-to-br ${product.color} blur-[80px] opacity-20 group-hover:opacity-40 transition-opacity duration-500`} />
             </motion.div>
+            </Link>
           ))}
         </div>
         
