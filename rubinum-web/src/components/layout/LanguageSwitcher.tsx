@@ -28,7 +28,7 @@ export function LanguageSwitcher({ currentLang, isMobile = false }: { currentLan
     if (!pathname) return "/";
     
     const segments = pathname.split("/");
-    const isCurrentPathLocale = i18n.locales.includes(segments[1]);
+    const isCurrentPathLocale = i18n.locales.includes(segments[1] as any);
     
     // If we are switching to English (default language)
     if (locale === 'en') {

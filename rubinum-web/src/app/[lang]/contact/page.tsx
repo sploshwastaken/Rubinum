@@ -16,8 +16,8 @@ export const metadata: Metadata = {
   },
 };
 
-export default async function ContactPage({ params }: { params: Promise<{ lang: Locale }> }) {
+export default async function ContactPage({ params }: { params: Promise<{ lang: string }> }) {
   const { lang } = await params;
-  const dict = await getDictionary(lang);
+  const dict = await getDictionary(lang as Locale);
   return <ContactContent lang={lang} dict={dict} />;
 }
