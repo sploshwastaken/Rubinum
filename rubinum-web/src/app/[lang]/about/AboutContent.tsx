@@ -4,6 +4,7 @@ import { motion, useScroll, useTransform, useMotionTemplate, useMotionValue } fr
 import { useRef } from 'react';
 import { Users, Target, Lightbulb, Globe, Code2, Cpu, Zap, Award, Layers, ArrowRight, Sparkles, ShieldCheck } from 'lucide-react';
 import { cn } from '@/lib/utils';
+import Link from 'next/link';
 
 // --- Components ---
 
@@ -51,52 +52,52 @@ function GlowingCard({ children, className, color = "blue" }: { children: React.
   );
 }
 
-const stats = [
-  { label: "Years of Innovation", value: "05+", icon: Award, color: "text-orange-400" },
-  { label: "Global Projects", value: "120+", icon: Globe, color: "text-blue-400" },
-  { label: "Team Members", value: "45+", icon: Users, color: "text-purple-400" },
-  { label: "Lines of Code", value: "2M+", icon: Code2, color: "text-emerald-400" }
-];
-
-const values = [
-  {
-    title: "Visionary Thinking",
-    desc: "We don't just solve problems; we anticipate the future needs of the digital ecosystem.",
-    icon: Lightbulb,
-    color: "orange" as const
-  },
-  {
-    title: "Precision Engineering",
-    desc: "Every line of code is crafted with the accuracy of a Swiss watch and the power of a jet engine.",
-    icon: Cpu,
-    color: "blue" as const
-  },
-  {
-    title: "Unbreakable Security",
-    desc: "We build fortresses, not just applications. Security is woven into our DNA.",
-    icon: ShieldCheck,
-    color: "purple" as const
-  }
-];
-
-export default function AboutPage() {
+export default function AboutContent({ lang, dict }: { lang: string, dict: any }) {
   const containerRef = useRef<HTMLDivElement>(null);
   const { scrollYProgress } = useScroll({
     target: containerRef,
     offset: ["start start", "end end"]
   });
+
+  const stats = [
+    { label: dict.about.stats.years, value: "05+", icon: Award, color: "text-orange-400" },
+    { label: dict.about.stats.projects, value: "120+", icon: Globe, color: "text-blue-400" },
+    { label: dict.about.stats.team, value: "45+", icon: Users, color: "text-purple-400" },
+    { label: dict.about.stats.code, value: "2M+", icon: Code2, color: "text-emerald-400" }
+  ];
+
+  const values = [
+    {
+      title: dict.about.values.v1_title,
+      desc: dict.about.values.v1_desc,
+      icon: Lightbulb,
+      color: "orange" as const
+    },
+    {
+      title: dict.about.values.v2_title,
+      desc: dict.about.values.v2_desc,
+      icon: Cpu,
+      color: "blue" as const
+    },
+    {
+      title: dict.about.values.v3_title,
+      desc: dict.about.values.v3_desc,
+      icon: ShieldCheck,
+      color: "purple" as const
+    }
+  ];
   
   return (
-    <div className="bg-[#030303] min-h-screen text-white font-sans selection:bg-purple-500/30 overflow-hidden" ref={containerRef}>
+    <div className="bg-background min-h-screen text-white font-sans selection:bg-purple-500/30 overflow-hidden" ref={containerRef}>
       
       {/* --- Hero Section --- */}
       <section className="relative z-10 pt-24 pb-20 px-4 md:px-6 min-h-[60vh] md:min-h-[80vh] flex flex-col justify-center overflow-hidden">
         {/* --- Background System --- */}
         <div className="absolute inset-0 z-0 pointer-events-none">
           <div className="absolute inset-0 bg-[url('https://grainy-gradients.vercel.app/noise.svg')] opacity-20" />
-          <div className="absolute top-[-10%] left-[-10%] w-[800px] h-[800px] bg-purple-900/20 rounded-full blur-[120px] mix-blend-screen animate-pulse" style={{ animationDuration: '4s' }} />
-          <div className="absolute bottom-[-10%] right-[-10%] w-[600px] h-[600px] bg-blue-900/20 rounded-full blur-[120px] mix-blend-screen animate-pulse" style={{ animationDuration: '6s' }} />
-          <div className="absolute top-[40%] left-[30%] w-[500px] h-[500px] bg-orange-900/10 rounded-full blur-[100px] mix-blend-screen animate-pulse" style={{ animationDuration: '8s' }} />
+          <div className="absolute top-[-10%] left-[-10%] w-200 h-200 bg-purple-900/20 rounded-full blur-[120px] mix-blend-screen animate-pulse" style={{ animationDuration: '4s' }} />
+          <div className="absolute bottom-[-10%] right-[-10%] w-150 h-150 bg-blue-900/20 rounded-full blur-[120px] mix-blend-screen animate-pulse" style={{ animationDuration: '6s' }} />
+          <div className="absolute top-[40%] left-[30%] w-125 h-125 bg-orange-900/10 rounded-full blur-[100px] mix-blend-screen animate-pulse" style={{ animationDuration: '8s' }} />
           <div className="absolute inset-0" style={{ backgroundImage: 'radial-gradient(white 1px, transparent 1px)', backgroundSize: '50px 50px', opacity: 0.1 }} />
         </div>
         
@@ -111,25 +112,25 @@ export default function AboutPage() {
                 <span className="animate-ping absolute inline-flex h-full w-full rounded-full bg-blue-400 opacity-75"></span>
                 <span className="relative inline-flex rounded-full h-2 w-2 bg-blue-500"></span>
               </span>
-              <span className="text-xs font-medium text-gray-300 tracking-wider uppercase">System Identity</span>
+              <span className="text-xs font-medium text-gray-300 tracking-wider uppercase">{dict.about.system_identity}</span>
             </div>
             
             <h1 className="text-4xl sm:text-5xl md:text-7xl lg:text-8xl font-bold text-white tracking-tight mb-6 md:mb-8">
-              We Are The <br />
-              <span className="text-transparent bg-clip-text bg-gradient-to-r from-blue-400 via-purple-500 to-orange-500">
-                Neural Network
+              {dict.about.title_prefix} <br />
+              <span className="text-transparent bg-clip-text bg-linear-to-r from-blue-400 via-purple-500 to-orange-500">
+                {dict.about.title_suffix}
               </span>
             </h1>
             
             <p className="text-base md:text-xl text-gray-400 max-w-3xl mx-auto leading-relaxed px-4">
-              Rubinum is a collective of engineers, designers, and strategists building the digital infrastructure of tomorrow.
+              {dict.about.description}
             </p>
           </motion.div>
         </div>
       </section>
 
       {/* --- Stats Section --- */}
-      <section className="relative z-10 py-12 md:py-20 border-y border-white/5 bg-white/[0.02] backdrop-blur-sm">
+      <section className="relative z-10 py-12 md:py-20 border-y border-white/5 bg-white/2 backdrop-blur-sm">
         <div className="container mx-auto px-4 md:px-6">
           <div className="grid grid-cols-2 md:grid-cols-4 gap-8 md:gap-12">
             {stats.map((stat, index) => (
@@ -163,23 +164,23 @@ export default function AboutPage() {
               viewport={{ once: true }}
             >
               <h2 className="text-xs md:text-sm font-medium tracking-[0.3em] text-blue-400 uppercase mb-4 md:mb-6">
-                Our Manifesto
+                {dict.about.manifesto.label}
               </h2>
               <h3 className="text-3xl md:text-4xl lg:text-5xl font-bold text-white mb-6 md:mb-8 leading-tight">
-                We believe in code that <br />
-                <span className="text-transparent bg-clip-text bg-gradient-to-r from-blue-400 to-purple-500">
-                  breathes and evolves.
+                {dict.about.manifesto.title_prefix} <br />
+                <span className="text-transparent bg-clip-text bg-linear-to-r from-blue-400 to-purple-500">
+                  {dict.about.manifesto.title_suffix}
                 </span>
               </h3>
               <div className="space-y-4 md:space-y-6 text-base md:text-lg text-gray-400 leading-relaxed">
                 <p>
-                  In a world saturated with static software, we build living systems. We believe that technology should not just be a tool, but an extension of human capability.
+                  {dict.about.manifesto.p1}
                 </p>
                 <p>
-                  Our approach is rooted in "Neural Infrastructure" — a design philosophy that treats every application as a connected node in a larger intelligence network. We don't just write code; we architect ecosystems.
+                  {dict.about.manifesto.p2}
                 </p>
                 <p>
-                  From the smallest micro-interaction to the most complex cloud architecture, every detail is meticulously crafted to ensure performance, scalability, and beauty.
+                  {dict.about.manifesto.p3}
                 </p>
               </div>
             </motion.div>
@@ -191,9 +192,9 @@ export default function AboutPage() {
               viewport={{ once: true }}
               className="relative mt-8 lg:mt-0"
             >
-              <div className="absolute inset-0 bg-gradient-to-r from-blue-500 to-purple-500 rounded-3xl blur-3xl opacity-20 animate-pulse" />
+              <div className="absolute inset-0 bg-linear-to-r from-blue-500 to-purple-500 rounded-3xl blur-3xl opacity-20 animate-pulse" />
               <div className="relative rounded-3xl border border-white/10 bg-zinc-900/80 backdrop-blur-xl p-6 md:p-8 overflow-hidden">
-                <div className="absolute top-0 left-0 w-full h-1 bg-gradient-to-r from-blue-500 via-purple-500 to-orange-500" />
+                <div className="absolute top-0 left-0 w-full h-1 bg-linear-to-r from-blue-500 via-purple-500 to-orange-500" />
                 <div className="font-mono text-xs md:text-sm text-gray-400 space-y-2 overflow-x-auto">
                   <div className="flex gap-2">
                     <span className="text-purple-400">class</span>
@@ -231,12 +232,12 @@ export default function AboutPage() {
       </section>
 
       {/* --- Values Section --- */}
-      <section className="relative z-10 py-20 md:py-24 px-4 md:px-6 bg-white/[0.02]">
+      <section className="relative z-10 py-20 md:py-24 px-4 md:px-6 bg-white/2">
         <div className="container mx-auto max-w-6xl">
           <div className="text-center mb-12 md:mb-16">
-            <h2 className="text-3xl md:text-5xl font-bold text-white mb-4 md:mb-6">Our Core DNA</h2>
+            <h2 className="text-3xl md:text-5xl font-bold text-white mb-4 md:mb-6">{dict.about.values.title}</h2>
             <p className="text-base md:text-lg text-gray-400 max-w-2xl mx-auto">
-              The fundamental principles that guide every decision, every line of code, and every pixel we craft.
+              {dict.about.values.description}
             </p>
           </div>
 
@@ -263,19 +264,19 @@ export default function AboutPage() {
       <section className="relative z-10 py-20 md:py-32 px-4 md:px-6 text-center">
         <div className="container mx-auto max-w-4xl">
           <h2 className="text-3xl md:text-4xl lg:text-6xl font-bold text-white mb-6 md:mb-8">
-            Ready to build the <br />
-            <span className="text-transparent bg-clip-text bg-gradient-to-r from-blue-400 to-purple-500">Impossible?</span>
+            {dict.about.cta.title_prefix} <br />
+            <span className="text-transparent bg-clip-text bg-linear-to-r from-blue-400 to-purple-500">{dict.about.cta.title_suffix}</span>
           </h2>
           <p className="text-lg md:text-xl text-gray-400 mb-8 md:mb-12">
-            Join us on our journey to architect the future. Whether you are a client or a creator, there is a place for you in the network.
+            {dict.about.cta.description}
           </p>
           <div className="flex flex-col sm:flex-row items-center justify-center gap-4 md:gap-6">
-            <a href="/contact" className="w-full sm:w-auto px-8 py-4 rounded-full bg-white text-black font-bold hover:bg-gray-200 transition-colors flex items-center justify-center gap-2">
-              Start a Project <ArrowRight className="w-4 h-4" />
-            </a>
-            <a href="/career" className="w-full sm:w-auto px-8 py-4 rounded-full bg-white/5 border border-white/10 text-white font-bold hover:bg-white/10 transition-colors flex items-center justify-center">
-              Join the Team
-            </a>
+            <Link href={lang === 'en' ? '/contact' : `/${lang}/contact`} className="w-full sm:w-auto px-8 py-4 rounded-full bg-white text-black font-bold hover:bg-gray-200 transition-colors flex items-center justify-center gap-2">
+              {dict.about.cta.primary} <ArrowRight className="w-4 h-4" />
+            </Link>
+            <Link href={lang === 'en' ? '/career' : `/${lang}/career`} className="w-full sm:w-auto px-8 py-4 rounded-full bg-white/5 border border-white/10 text-white font-bold hover:bg-white/10 transition-colors flex items-center justify-center">
+              {dict.about.cta.secondary}
+            </Link>
           </div>
         </div>
       </section>

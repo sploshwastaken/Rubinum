@@ -11,8 +11,10 @@ export function ScrollToTop() {
 
   useEffect(() => {
     const toggleVisibility = () => {
-      // Only show on homepage
-      if (pathname !== '/') {
+      // Only show on homepage (e.g. /, /en, /tr, /de, /ru)
+      const isHomePage = pathname === '/' || /^\/[a-z]{2}$/.test(pathname);
+      
+      if (!isHomePage) {
         setIsVisible(false);
         return;
       }

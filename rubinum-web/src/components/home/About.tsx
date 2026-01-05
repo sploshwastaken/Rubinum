@@ -6,34 +6,7 @@ import { useRef } from 'react';
 import { cn } from '@/lib/utils';
 import Link from 'next/link';
 
-const stats = [
-  { label: "Active Projects", value: "124+", icon: Layers, color: "text-blue-400" },
-  { label: "Team Members", value: "45+", icon: Users, color: "text-purple-400" },
-  { label: "Client Satisfaction", value: "99%", icon: BarChart3, color: "text-emerald-400" }
-];
-
-const features = [
-  { 
-    title: "Strategic Vision", 
-    desc: "We don't just build; we plan for the decade ahead.",
-    icon: Globe,
-    color: "bg-blue-500/10 text-blue-400 border-blue-500/20"
-  },
-  { 
-    title: "Engineering Excellence", 
-    desc: "Code that is as beautiful as it is functional.",
-    icon: Code2,
-    color: "bg-purple-500/10 text-purple-400 border-purple-500/20"
-  },
-  { 
-    title: "Human-Centric Design", 
-    desc: "Technology that feels natural and empowering.",
-    icon: Cpu,
-    color: "bg-orange-500/10 text-orange-400 border-orange-500/20"
-  }
-];
-
-export function About() {
+export function About({ lang, dict }: { lang: string, dict: any }) {
   const containerRef = useRef(null);
   const { scrollYProgress } = useScroll({
     target: containerRef,
@@ -41,6 +14,33 @@ export function About() {
   });
 
   const y = useTransform(scrollYProgress, [0, 1], [50, -50]);
+
+  const stats = [
+    { label: dict.home.about.stats.projects, value: "124+", icon: Layers, color: "text-blue-400" },
+    { label: dict.home.about.stats.team, value: "45+", icon: Users, color: "text-purple-400" },
+    { label: dict.home.about.stats.satisfaction, value: "99%", icon: BarChart3, color: "text-emerald-400" }
+  ];
+
+  const features = [
+    { 
+      title: dict.home.about.features.vision.title, 
+      desc: dict.home.about.features.vision.desc,
+      icon: Globe,
+      color: "bg-blue-500/10 text-blue-400 border-blue-500/20"
+    },
+    { 
+      title: dict.home.about.features.excellence.title, 
+      desc: dict.home.about.features.excellence.desc,
+      icon: Code2,
+      color: "bg-purple-500/10 text-purple-400 border-purple-500/20"
+    },
+    { 
+      title: dict.home.about.features.design.title, 
+      desc: dict.home.about.features.design.desc,
+      icon: Cpu,
+      color: "bg-orange-500/10 text-orange-400 border-orange-500/20"
+    }
+  ];
   
   return (
     <section id="about" ref={containerRef} className="py-20 md:py-32 relative z-10">
@@ -56,21 +56,21 @@ export function About() {
               viewport={{ once: true }}
             >
               <div className="flex items-center gap-2 mb-4 md:mb-6">
-                <span className="h-[1px] w-8 md:w-12 bg-blue-500"></span>
+                <span className="h-px w-8 md:w-12 bg-blue-500"></span>
                 <h2 className="text-xs md:text-sm font-medium tracking-[0.3em] text-blue-400 uppercase">
-                  Who We Are
+                  {dict.home.about.label}
                 </h2>
               </div>
               
               <h3 className="text-3xl sm:text-4xl md:text-6xl font-bold text-white mb-6 md:mb-8 leading-tight">
-                Architects of the <br />
-                <span className="text-transparent bg-clip-text bg-gradient-to-r from-blue-400 to-purple-500">
-                  Digital Renaissance
+                {dict.home.about.title_prefix} <br />
+                <span className="text-transparent bg-clip-text bg-linear-to-r from-blue-400 to-purple-500">
+                  {dict.home.about.title_suffix}
                 </span>
               </h3>
               
               <p className="text-base md:text-lg text-gray-400 mb-8 md:mb-10 leading-relaxed">
-                Rubinum isn't just a software company. We are a collective of visionaries, engineers, and artists. We believe that true innovation happens at the intersection of rigorous engineering and boundless creativity.
+                {dict.home.about.description}
               </p>
               
               <div className="space-y-3 md:space-y-4 mb-8 md:mb-12">
@@ -93,88 +93,42 @@ export function About() {
                 ))}
               </div>
 
-              <Link href="/about" className="block w-full sm:w-auto">
+              <Link href={lang === 'en' ? '/about' : `/${lang}/about`} className="block w-full sm:w-auto">
                 <button className="w-full sm:w-auto group flex items-center justify-center gap-2 text-white px-6 py-3 rounded-full bg-white/5 border border-white/10 hover:bg-white/10 hover:border-white/20 transition-all text-sm md:text-base">
-                  <span>Read our Manifesto</span>
+                  <span>{dict.home.about.cta}</span>
                   <ArrowRight className="w-4 h-4 group-hover:translate-x-1 transition-transform" />
                 </button>
               </Link>
             </motion.div>
           </div>
 
-          {/* Right Visuals */}
-          <div className="lg:w-1/2 relative perspective-1000">
-            <motion.div style={{ y, rotateY: -10, rotateX: 5 }} className="relative z-10">
-              {/* Main Glass Card */}
-              <div className="relative rounded-3xl overflow-hidden border border-white/10 bg-zinc-900/50 backdrop-blur-xl shadow-2xl">
-                {/* Header Bar */}
-                <div className="h-12 border-b border-white/10 bg-white/5 flex items-center px-6 gap-2">
-                  <div className="w-3 h-3 rounded-full bg-red-500/50" />
-                  <div className="w-3 h-3 rounded-full bg-yellow-500/50" />
-                  <div className="w-3 h-3 rounded-full bg-green-500/50" />
-                  <div className="ml-4 text-xs text-gray-500 font-mono">rubinum_core_system.tsx</div>
-                </div>
-
-                {/* Content Area */}
-                <div className="p-8 relative">
-                  {/* Code/Grid Background Effect */}
-                  <div className="absolute inset-0 opacity-10 bg-[linear-gradient(to_right,#80808012_1px,transparent_1px),linear-gradient(to_bottom,#80808012_1px,transparent_1px)] bg-[size:24px_24px]"></div>
-                  
-                  <div className="relative z-10 space-y-8">
-                    {/* Abstract Visualization */}
-                    <div className="flex justify-between items-end">
-                      <div className="space-y-2">
-                        <div className="text-xs text-blue-400 font-mono mb-2">SYSTEM STATUS</div>
-                        <div className="flex items-center gap-2">
-                          <div className="w-2 h-2 rounded-full bg-emerald-500 animate-pulse" />
-                          <span className="text-emerald-500 font-mono text-sm">OPERATIONAL</span>
-                        </div>
-                      </div>
-                      <Zap className="w-12 h-12 text-white/10" />
-                    </div>
-
-                    {/* Stats Grid */}
-                    <div className="grid grid-cols-2 gap-4">
-                      {stats.map((stat, i) => (
-                        <div key={i} className={cn("p-4 rounded-xl bg-black/20 border border-white/5", i === 2 ? "col-span-2" : "")}>
-                          <div className="flex items-center justify-between mb-2">
-                            <stat.icon className={cn("w-5 h-5", stat.color)} />
-                            <span className="text-xs text-gray-500 font-mono">0{i+1}</span>
-                          </div>
-                          <div className="text-2xl font-bold text-white mb-1">{stat.value}</div>
-                          <div className="text-xs text-gray-400 uppercase tracking-wider">{stat.label}</div>
-                        </div>
-                      ))}
-                    </div>
-
-                    {/* Bottom Code Snippet */}
-                    <div className="p-4 rounded-xl bg-black/40 border border-white/5 font-mono text-xs text-gray-400 overflow-hidden">
-                      <div className="flex gap-2">
-                        <span className="text-blue-400">const</span>
-                        <span className="text-yellow-400">future</span>
-                        <span className="text-white">=</span>
-                        <span className="text-purple-400">await</span>
-                        <span className="text-blue-400">build</span>
-                        <span className="text-white">({' {'}</span>
-                      </div>
-                      <div className="pl-4 text-gray-500">
-                        vision: <span className="text-green-400">true</span>,
-                      </div>
-                      <div className="pl-4 text-gray-500">
-                        limits: <span className="text-red-400">null</span>
-                      </div>
-                      <div className="text-white">{'}'});</div>
-                    </div>
+          {/* Right Content - Stats Grid */}
+          <div className="w-full lg:w-1/2">
+            <motion.div 
+              style={{ y }}
+              className="grid grid-cols-1 sm:grid-cols-2 gap-4 md:gap-6"
+            >
+              {stats.map((stat, index) => (
+                <motion.div
+                  key={index}
+                  initial={{ opacity: 0, y: 20 }}
+                  whileInView={{ opacity: 1, y: 0 }}
+                  transition={{ delay: index * 0.2 }}
+                  viewport={{ once: true }}
+                  className={cn(
+                    "p-6 md:p-8 rounded-3xl bg-zinc-900/50 backdrop-blur-md border border-white/10 hover:bg-zinc-900/80 transition-colors",
+                    index === 0 ? "sm:col-span-2" : ""
+                  )}
+                >
+                  <div className={cn("w-10 h-10 md:w-12 md:h-12 rounded-xl bg-white/5 flex items-center justify-center mb-4", stat.color)}>
+                    <stat.icon className="w-5 h-5 md:w-6 md:h-6" />
                   </div>
-                </div>
-              </div>
-
-              {/* Decorative Elements behind */}
-              <div className="absolute -top-10 -right-10 w-64 h-64 bg-blue-500/20 rounded-full blur-[100px] -z-10" />
-              <div className="absolute -bottom-10 -left-10 w-64 h-64 bg-purple-500/20 rounded-full blur-[100px] -z-10" />
+                  <div className="text-3xl md:text-4xl font-bold text-white mb-2">{stat.value}</div>
+                  <div className="text-sm text-gray-400">{stat.label}</div>
+                </motion.div>
+              ))}
             </motion.div>
           </div>
-
         </div>
       </div>
     </section>

@@ -1,9 +1,11 @@
 import type { Metadata, Viewport } from "next";
 import { Geist, Geist_Mono } from "next/font/google";
-import "./globals.css";
+import "../globals.css";
 import { Navbar } from "@/components/layout/Navbar";
 import { Footer } from "@/components/layout/Footer";
 import { ScrollToTop } from "@/components/ui/ScrollToTop";
+import { i18n, type Locale } from "@/i18n-config";
+import { getDictionary } from "@/get-dictionary";
 
 const geistSans = Geist({
   variable: "--font-geist-sans",
@@ -75,13 +77,22 @@ export const metadata: Metadata = {
   manifest: "/manifest.json",
 };
 
-export default function RootLayout({
+export async function generateStaticParams() {
+  return i18n.locales.map((locale) => ({ lang: locale }));
+}
+
+export default async function RootLayout({
   children,
-}: Readonly<{
+  params,
+}: {
   children: React.ReactNode;
-}>) {
+  params: Promise<{ lang: Locale }>;
+}) {
+  const { lang } = await params;
+  const dict = await getDictionary(lang);
+
   return (
-    <html lang="en" className="scroll-smooth">
+    <html lang={lang} className="scroll-smooth">
       <head>
         <script
           type="application/ld+json"
@@ -109,13 +120,13 @@ export default function RootLayout({
       <body
         className={`${geistSans.variable} ${geistMono.variable} antialiased bg-black text-white`}
       >
-        <Navbar />
-        <div className="relative z-10 mb-0 md:mb-[500px] shadow-2xl rounded-b-3xl bg-[#030303]">
+        <Navbar lang={lang} dict={dict} />
+        <div className="relative z-10 mb-0 md:mb-125 shadow-2xl rounded-b-3xl bg-background">
           <main className="min-h-screen relative">
             {children}
           </main>
         </div>
-        <Footer />
+        <Footer lang={lang} dict={dict} />
         <ScrollToTop />
       </body>
     </html>

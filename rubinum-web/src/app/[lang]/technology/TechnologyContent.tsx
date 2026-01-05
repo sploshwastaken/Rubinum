@@ -69,7 +69,7 @@ function TechBadge({ icon: Icon, label }: { icon: any, label: string }) {
 
 // --- Main Page Component ---
 
-export default function TechnologyPage() {
+export default function TechnologyContent({ lang, dict }: { lang: string, dict: any }) {
   const containerRef = useRef<HTMLDivElement>(null);
   const { scrollYProgress } = useScroll({
     target: containerRef,
@@ -77,16 +77,16 @@ export default function TechnologyPage() {
   });
 
   return (
-    <div className="bg-[#030303] min-h-screen text-white font-sans selection:bg-blue-500/30 overflow-hidden" ref={containerRef}>
+    <div className="bg-background min-h-screen text-white font-sans selection:bg-blue-500/30 overflow-hidden" ref={containerRef}>
       
       {/* Hero Section */}
       <section className="relative z-10 pt-24 pb-20 px-4 md:px-6 min-h-[60vh] md:min-h-[80vh] flex flex-col justify-center overflow-hidden">
         {/* --- Background System --- */}
         <div className="absolute inset-0 z-0 pointer-events-none">
           <div className="absolute inset-0 bg-[url('https://grainy-gradients.vercel.app/noise.svg')] opacity-20" />
-          <div className="absolute top-[-10%] left-[-10%] w-[800px] h-[800px] bg-purple-900/20 rounded-full blur-[120px] mix-blend-screen animate-pulse" style={{ animationDuration: '4s' }} />
-          <div className="absolute bottom-[-10%] right-[-10%] w-[600px] h-[600px] bg-blue-900/20 rounded-full blur-[120px] mix-blend-screen animate-pulse" style={{ animationDuration: '6s' }} />
-          <div className="absolute top-[40%] left-[30%] w-[500px] h-[500px] bg-orange-900/10 rounded-full blur-[100px] mix-blend-screen animate-pulse" style={{ animationDuration: '8s' }} />
+          <div className="absolute top-[-10%] left-[-10%] w-200 h-200 bg-purple-900/20 rounded-full blur-[120px] mix-blend-screen animate-pulse" style={{ animationDuration: '4s' }} />
+          <div className="absolute bottom-[-10%] right-[-10%] w-150 h-150 bg-blue-900/20 rounded-full blur-[120px] mix-blend-screen animate-pulse" style={{ animationDuration: '6s' }} />
+          <div className="absolute top-[40%] left-[30%] w-125 h-125 bg-orange-900/10 rounded-full blur-[100px] mix-blend-screen animate-pulse" style={{ animationDuration: '8s' }} />
           <div className="absolute inset-0" style={{ backgroundImage: 'radial-gradient(white 1px, transparent 1px)', backgroundSize: '50px 50px', opacity: 0.1 }} />
         </div>
         
@@ -101,18 +101,18 @@ export default function TechnologyPage() {
                 <span className="animate-ping absolute inline-flex h-full w-full rounded-full bg-blue-400 opacity-75"></span>
                 <span className="relative inline-flex rounded-full h-2 w-2 bg-blue-500"></span>
               </span>
-              <span className="text-xs font-medium text-gray-300 tracking-wider uppercase">Our Tech Stack</span>
+              <span className="text-xs font-medium text-gray-300 tracking-wider uppercase">{dict.technology.badge}</span>
             </div>
             
             <h1 className="text-4xl sm:text-5xl md:text-7xl lg:text-8xl font-bold text-white tracking-tight mb-6 md:mb-8">
-              Powered By <br />
-              <span className="text-transparent bg-clip-text bg-gradient-to-r from-blue-400 via-purple-500 to-orange-500">
-                Intelligence
+              {dict.technology.title_prefix} <br />
+              <span className="text-transparent bg-clip-text bg-linear-to-r from-blue-400 via-purple-500 to-orange-500">
+                {dict.technology.title_suffix}
               </span>
             </h1>
             
             <p className="text-base md:text-xl text-gray-400 max-w-3xl mx-auto leading-relaxed px-4">
-              We leverage the most advanced technologies to build scalable, secure, and high-performance digital solutions.
+              {dict.technology.description}
             </p>
           </motion.div>
         </div>
@@ -166,33 +166,33 @@ export default function TechnologyPage() {
                   <Server className="w-6 h-6 text-blue-400" />
                 </div>
                 <h2 className="text-xs md:text-sm font-medium tracking-[0.3em] text-blue-400 uppercase">
-                  The Core
+                  {dict.technology.core.label}
                 </h2>
               </div>
               
               <h3 className="text-4xl md:text-6xl font-bold mb-6 text-white">
-                Quantum<br/>Processing Unit
+                {dict.technology.core.title}
               </h3>
               
               <p className="text-base md:text-lg text-gray-400 leading-relaxed mb-8">
-                Our proprietary core architecture handles millions of operations per second with near-zero latency. It's not just fast; it's predictive, adapting to load before it happens.
+                {dict.technology.core.description}
               </p>
               
               <div className="grid grid-cols-2 gap-4 mb-8">
                 <div className="p-4 rounded-2xl bg-white/5 border border-white/10 hover:bg-white/10 transition-colors">
                   <div className="text-2xl md:text-3xl font-bold text-white mb-1">0.01<span className="text-base md:text-lg text-gray-500 font-normal">ms</span></div>
-                  <div className="text-xs text-gray-500 uppercase tracking-wider">Latency</div>
+                  <div className="text-xs text-gray-500 uppercase tracking-wider">{dict.technology.core.latency}</div>
                 </div>
                 <div className="p-4 rounded-2xl bg-white/5 border border-white/10 hover:bg-white/10 transition-colors">
                   <div className="text-2xl md:text-3xl font-bold text-white mb-1">99.99<span className="text-base md:text-lg text-gray-500 font-normal">%</span></div>
-                  <div className="text-xs text-gray-500 uppercase tracking-wider">Uptime</div>
+                  <div className="text-xs text-gray-500 uppercase tracking-wider">{dict.technology.core.uptime}</div>
                 </div>
               </div>
 
               <div className="flex flex-wrap gap-2">
-                <TechBadge icon={Code2} label="Rust Core" />
-                <TechBadge icon={Activity} label="Real-time" />
-                <TechBadge icon={Database} label="Distributed" />
+                <TechBadge icon={Code2} label={dict.technology.core.badges.rust} />
+                <TechBadge icon={Activity} label={dict.technology.core.badges.realtime} />
+                <TechBadge icon={Database} label={dict.technology.core.badges.distributed} />
               </div>
             </motion.div>
           </div>
@@ -214,20 +214,20 @@ export default function TechnologyPage() {
                   <Shield className="w-6 h-6 text-purple-400" />
                 </div>
                 <h2 className="text-xs md:text-sm font-medium tracking-[0.3em] text-purple-400 uppercase">
-                  Security Layer
+                  {dict.technology.security.label}
                 </h2>
               </div>
 
               <h3 className="text-4xl md:text-6xl font-bold mb-6 text-white">
-                Hermetic<br/>Encryption
+                {dict.technology.security.title}
               </h3>
               
               <p className="text-base md:text-lg text-gray-400 leading-relaxed mb-8">
-                Your data is encapsulated in a cryptographic vault. We employ military-grade encryption standards that evolve in real-time to counter emerging threats.
+                {dict.technology.security.description}
               </p>
               
               <div className="space-y-4 mb-8">
-                {['End-to-End Encryption', 'Biometric Authentication', 'Zero-Knowledge Proofs'].map((item, i) => (
+                {[dict.technology.security.features.e2e, dict.technology.security.features.biometric, dict.technology.security.features.zkp].map((item, i) => (
                   <div key={i} className="flex items-center gap-4 p-3 rounded-xl bg-white/5 border border-white/5 hover:border-purple-500/30 transition-colors">
                     <div className="w-2 h-2 rounded-full bg-purple-500 shadow-[0_0_10px_rgba(168,85,247,1)]" />
                     <span className="text-gray-300 font-medium">{item}</span>
@@ -298,26 +298,26 @@ export default function TechnologyPage() {
                   <Activity className="w-6 h-6 text-orange-400" />
                 </div>
                 <h2 className="text-xs md:text-sm font-medium tracking-[0.3em] text-orange-400 uppercase">
-                  The Engine
+                  {dict.technology.engine.label}
                 </h2>
               </div>
 
               <h3 className="text-4xl md:text-6xl font-bold mb-6 text-white">
-                Hyper<br/>Automation
+                {dict.technology.engine.title}
               </h3>
               
               <p className="text-base md:text-lg text-gray-400 leading-relaxed mb-8">
-                The engine that never sleeps. Our autonomous systems monitor, optimize, and execute complex workflows with surgical precision, freeing your team to focus on innovation.
+                {dict.technology.engine.description}
               </p>
               
               <div className="flex flex-wrap gap-4">
                 <div className="px-6 py-3 rounded-full bg-orange-500/10 border border-orange-500/20 text-orange-400 text-sm font-medium flex items-center gap-2">
                   <div className="w-2 h-2 rounded-full bg-orange-500 animate-pulse" />
-                  Self-Optimizing
+                  {dict.technology.engine.features.optimizing}
                 </div>
                 <div className="px-6 py-3 rounded-full bg-orange-500/10 border border-orange-500/20 text-orange-400 text-sm font-medium flex items-center gap-2">
                   <div className="w-2 h-2 rounded-full bg-orange-500 animate-pulse" />
-                  Auto-Scaling
+                  {dict.technology.engine.features.scaling}
                 </div>
               </div>
             </motion.div>
@@ -340,21 +340,21 @@ export default function TechnologyPage() {
                   <Layers className="w-6 h-6 text-emerald-400" />
                 </div>
                 <h2 className="text-xs md:text-sm font-medium tracking-[0.3em] text-emerald-400 uppercase">
-                  Interface
+                  {dict.technology.interface.label}
                 </h2>
               </div>
 
               <h3 className="text-4xl md:text-6xl font-bold mb-6 text-white">
-                Total<br/>Control
+                {dict.technology.interface.title}
               </h3>
               
               <p className="text-base md:text-lg text-gray-400 leading-relaxed mb-8">
-                Power is nothing without control. Our glass-morphic interface provides a unified view of your entire digital ecosystem, accessible from anywhere in the world.
+                {dict.technology.interface.description}
               </p>
               
               <button className="group relative px-8 py-4 bg-white text-black font-bold rounded-full overflow-hidden flex items-center gap-2">
                 <Terminal className="w-4 h-4" />
-                <span className="relative z-10 group-hover:text-white transition-colors duration-300">Initialize Demo</span>
+                <span className="relative z-10 group-hover:text-white transition-colors duration-300">{dict.technology.interface.demo_btn}</span>
                 <div className="absolute inset-0 bg-black transform scale-x-0 group-hover:scale-x-100 transition-transform duration-300 origin-left" />
               </button>
             </motion.div>
@@ -372,13 +372,13 @@ export default function TechnologyPage() {
                    <div className="w-3 h-3 rounded-full bg-red-500" />
                    <div className="w-3 h-3 rounded-full bg-yellow-500" />
                    <div className="w-3 h-3 rounded-full bg-green-500" />
-                   <span className="ml-auto text-xs font-mono text-emerald-500">LIVE</span>
+                   <span className="ml-auto text-xs font-mono text-emerald-500">{dict.technology.interface.live}</span>
                  </div>
                  <div className="space-y-3 font-mono text-xs text-emerald-400/80">
-                   <div>{`> System.init()`}</div>
-                   <div>{`> Loading modules...`}</div>
-                   <div className="text-white">{`> Core: ONLINE`}</div>
-                   <div className="text-white">{`> Security: ACTIVE`}</div>
+                   <div>{dict.technology.interface.system_init}</div>
+                   <div>{dict.technology.interface.loading}</div>
+                   <div className="text-white">{dict.technology.interface.core_online}</div>
+                   <div className="text-white">{dict.technology.interface.security_active}</div>
                  </div>
                </motion.div>
 
@@ -388,8 +388,8 @@ export default function TechnologyPage() {
                  transition={{ duration: 7, repeat: Infinity, ease: "easeInOut", delay: 1 }}
                >
                  <div className="flex justify-between items-center mb-6">
-                   <span className="text-xs text-gray-500 uppercase font-bold">Resource Usage</span>
-                   <span className="text-xs text-emerald-400 bg-emerald-500/10 px-2 py-1 rounded">Optimal</span>
+                   <span className="text-xs text-gray-500 uppercase font-bold">{dict.technology.interface.resource_usage}</span>
+                   <span className="text-xs text-emerald-400 bg-emerald-500/10 px-2 py-1 rounded">{dict.technology.interface.optimal}</span>
                  </div>
                  <div className="flex items-end gap-2 h-32">
                    {[40, 70, 50, 90, 60, 80, 45, 75].map((h, i) => (

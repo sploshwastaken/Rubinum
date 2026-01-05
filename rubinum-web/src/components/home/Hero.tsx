@@ -5,7 +5,7 @@ import { useRef, useState, useEffect } from 'react';
 import { ArrowRight, Sparkles } from 'lucide-react';
 import Link from 'next/link';
 
-export function Hero() {
+export function Hero({ lang, dict }: { lang: string, dict: any }) {
   const ref = useRef(null);
   const { scrollYProgress } = useScroll({
     target: ref,
@@ -21,7 +21,7 @@ export function Hero() {
   const [isDeleting, setIsDeleting] = useState(false);
   const [wordIndex, setWordIndex] = useState(0);
   
-  const words = ["Evolution Partner", "Cloud Architect", "AI Innovator", "Growth Engine"];
+  const words = dict?.hero?.words || ["Evolution Partner", "Cloud Architect", "AI Innovator", "Growth Engine"];
 
   useEffect(() => {
     const currentWord = words[wordIndex % words.length];
@@ -52,7 +52,7 @@ export function Hero() {
     }
 
     return () => clearTimeout(timer);
-  }, [text, isDeleting, wordIndex]);
+  }, [text, isDeleting, wordIndex, words]);
 
   return (
     <section ref={ref} className="relative h-screen flex items-center justify-center overflow-hidden bg-transparent">
@@ -65,9 +65,9 @@ export function Hero() {
         <div className="absolute inset-0 bg-[url('https://grainy-gradients.vercel.app/noise.svg')] opacity-20" />
         
         {/* Zeabur-like Gradients */}
-        <div className="absolute top-[-20%] left-[-10%] w-[800px] h-[800px] bg-purple-900/20 rounded-full blur-[120px] mix-blend-screen animate-pulse" style={{ animationDuration: '4s' }} />
-        <div className="absolute bottom-[-20%] right-[-10%] w-[600px] h-[600px] bg-blue-900/20 rounded-full blur-[120px] mix-blend-screen animate-pulse" style={{ animationDuration: '6s' }} />
-        <div className="absolute bottom-[10%] left-[20%] w-[500px] h-[500px] bg-orange-900/10 rounded-full blur-[100px] mix-blend-screen animate-pulse" style={{ animationDuration: '8s' }} />
+        <div className="absolute top-[-20%] left-[-10%] w-200 h-200 bg-purple-900/20 rounded-full blur-[120px] mix-blend-screen animate-pulse" style={{ animationDuration: '4s' }} />
+        <div className="absolute bottom-[-20%] right-[-10%] w-150 h-150 bg-blue-900/20 rounded-full blur-[120px] mix-blend-screen animate-pulse" style={{ animationDuration: '6s' }} />
+        <div className="absolute bottom-[10%] left-[20%] w-125 h-125 bg-orange-900/10 rounded-full blur-[100px] mix-blend-screen animate-pulse" style={{ animationDuration: '8s' }} />
         
         {/* Star Field Effect (CSS based simple stars) */}
         <div className="absolute inset-0" style={{ backgroundImage: 'radial-gradient(white 1px, transparent 1px)', backgroundSize: '50px 50px', opacity: 0.1 }} />
@@ -79,7 +79,7 @@ export function Hero() {
         className="container relative z-10 px-6 text-center"
       >
         {/* Badge */}
-        <Link href="/technology">
+        <Link href={lang === 'en' ? '/technology' : `/${lang}/technology`}>
           <motion.div 
             initial={{ opacity: 0, y: -20 }}
             animate={{ opacity: 1, y: 0 }}
@@ -87,7 +87,7 @@ export function Hero() {
             className="inline-flex items-center gap-2 px-3 py-1.5 md:px-4 md:py-2 rounded-full bg-white/5 border border-white/10 backdrop-blur-md mb-6 md:mb-8 hover:bg-white/10 transition-colors cursor-pointer max-w-[90vw]"
           >
             <span className="flex h-1.5 w-1.5 md:h-2 md:w-2 rounded-full bg-blue-500 animate-pulse shrink-0" />
-            <span className="text-xs md:text-sm text-gray-300 truncate">Introducing Rubinum AI 2.0</span>
+            <span className="text-xs md:text-sm text-gray-300 truncate">{dict.hero.badge}</span>
             <ArrowRight className="w-3 h-3 text-gray-400 shrink-0" />
           </motion.div>
         </Link>
@@ -96,12 +96,12 @@ export function Hero() {
           initial={{ opacity: 0, y: 20 }}
           animate={{ opacity: 1, y: 0 }}
           transition={{ duration: 0.8, delay: 0.4 }}
-          className="text-4xl sm:text-5xl md:text-7xl lg:text-8xl font-bold tracking-tighter text-white mb-6 md:mb-8 leading-tight break-words"
+          className="text-4xl sm:text-5xl md:text-7xl lg:text-8xl font-bold tracking-tighter text-white mb-6 md:mb-8 leading-tight wrap-break-word"
         >
-          Your Digital <br className="hidden sm:block" />
-          <span className="text-transparent bg-clip-text bg-gradient-to-r from-blue-400 via-purple-400 to-orange-400 block sm:inline mt-2 sm:mt-0">
+          {dict.hero.title_prefix} <br className="hidden sm:block" />
+          <span className="text-transparent bg-clip-text bg-linear-to-r from-blue-400 via-purple-400 to-orange-400 block sm:inline mt-2 sm:mt-0">
             {text}
-            <span className="inline-block w-[2px] md:w-[3px] h-[0.8em] bg-white ml-1 md:ml-2 animate-cursor-blink align-bottom mb-1"></span>
+            <span className="inline-block w-0.5 md:w-0.75 h-[0.8em] bg-white ml-1 md:ml-2 animate-cursor-blink align-bottom mb-1"></span>
           </span>
         </motion.h1>
 
@@ -111,7 +111,7 @@ export function Hero() {
           transition={{ duration: 0.8, delay: 0.6 }}
           className="text-base sm:text-lg md:text-xl text-gray-400 max-w-[90%] md:max-w-2xl mx-auto mb-8 md:mb-12 leading-relaxed"
         >
-          Rubinum handles your entire digital infrastructure. From cloud architecture to AI-driven development, we are the engine behind your growth.
+          {dict.hero.subtitle}
         </motion.p>
         
         <motion.div 
@@ -121,14 +121,14 @@ export function Hero() {
           className="flex flex-col sm:flex-row items-center justify-center gap-4 w-full px-4 sm:px-0"
         >
           <div className="relative group w-full sm:w-auto">
-            <div className="absolute -inset-1 bg-gradient-to-r from-blue-600 to-purple-600 rounded-full blur opacity-25 group-hover:opacity-75 transition duration-1000 group-hover:duration-200 hidden sm:block" />
-            <button className="relative w-full sm:w-auto px-6 py-3 md:px-8 md:py-4 bg-white text-black font-bold rounded-full flex items-center justify-center gap-2 hover:bg-gray-100 transition-all text-sm md:text-base">
-              Start Building <Sparkles className="w-4 h-4" />
-            </button>
+            <div className="absolute -inset-1 bg-linear-to-r from-blue-600 to-purple-600 rounded-full blur opacity-25 group-hover:opacity-75 transition duration-1000 group-hover:duration-200 hidden sm:block" />
+            <Link href={lang === 'en' ? '/contact' : `/${lang}/contact`} className="relative w-full sm:w-auto px-6 py-3 md:px-8 md:py-4 bg-white text-black font-bold rounded-full flex items-center justify-center gap-2 hover:bg-gray-100 transition-all text-sm md:text-base">
+              {dict.hero.cta_primary} <Sparkles className="w-4 h-4" />
+            </Link>
           </div>
-          <button className="w-full sm:w-auto px-6 py-3 md:px-8 md:py-4 text-white border border-white/10 rounded-full hover:bg-white/5 transition-all backdrop-blur-sm text-sm md:text-base">
-            View Documentation
-          </button>
+          <Link href={lang === 'en' ? '/career' : `/${lang}/career`} className="w-full sm:w-auto px-6 py-3 md:px-8 md:py-4 text-white border border-white/10 rounded-full hover:bg-white/5 transition-all backdrop-blur-sm text-sm md:text-base">
+            {dict.hero.cta_secondary}
+          </Link>
         </motion.div>
       </motion.div>
 

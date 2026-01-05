@@ -1,5 +1,7 @@
 import { Metadata } from "next";
 import AboutContent from "./AboutContent";
+import { getDictionary } from "@/get-dictionary";
+import { Locale } from "@/i18n-config";
 
 export const metadata: Metadata = {
   title: "About Us | Rubinum",
@@ -14,6 +16,8 @@ export const metadata: Metadata = {
   },
 };
 
-export default function AboutPage() {
-  return <AboutContent />;
+export default async function AboutPage({ params }: { params: Promise<{ lang: Locale }> }) {
+  const { lang } = await params;
+  const dict = await getDictionary(lang);
+  return <AboutContent lang={lang} dict={dict} />;
 }

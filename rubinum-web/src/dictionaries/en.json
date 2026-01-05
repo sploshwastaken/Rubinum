@@ -1,0 +1,251 @@
+{
+  "nav": {
+    "about": "About Us",
+    "technology": "Technology",
+    "career": "Career",
+    "contact": "Contact"
+  },
+  "hero": {
+    "badge": "Introducing Rubinum AI 2.0",
+    "title_prefix": "We Are Your",
+    "subtitle": "Rubinum is a collective of engineers, designers, and strategists building the digital infrastructure of tomorrow.",
+    "cta_primary": "Start a Project",
+    "cta_secondary": "Join the Team"
+  },
+  "footer": {
+    "tagline": "Architecting the digital future with precision, intelligence, and seamless integration. Join us on the journey to the next frontier.",
+    "subscribe_title": "Subscribe to our newsletter",
+    "subscribe_placeholder": "Enter your email",
+    "solutions": "Solutions",
+    "company": "Company",
+    "contact": "Contact",
+    "rights": "Rubinum Inc. All rights reserved.",
+    "privacy": "Privacy Policy",
+    "terms": "Terms of Service",
+    "cookie": "Cookie Policy"
+  },
+  "technology": {
+    "badge": "Our Tech Stack",
+    "title_prefix": "Powered By",
+    "title_suffix": "Intelligence",
+    "description": "We leverage the most advanced technologies to build scalable, secure, and high-performance digital solutions.",
+    "core": {
+      "label": "The Core",
+      "title": "Quantum Processing Unit",
+      "description": "Our proprietary core architecture handles millions of operations per second with near-zero latency. It's not just fast; it's predictive, adapting to load before it happens.",
+      "latency": "Latency",
+      "uptime": "Uptime",
+      "badges": {
+        "rust": "Rust Core",
+        "realtime": "Real-time",
+        "distributed": "Distributed"
+      }
+    },
+    "security": {
+      "label": "Security Layer",
+      "title": "Hermetic Encryption",
+      "description": "Your data is encapsulated in a cryptographic vault. We employ military-grade encryption standards that evolve in real-time to counter emerging threats.",
+      "features": {
+        "e2e": "End-to-End Encryption",
+        "biometric": "Biometric Authentication",
+        "zkp": "Zero-Knowledge Proofs"
+      }
+    },
+    "engine": {
+      "label": "The Engine",
+      "title": "Hyper Automation",
+      "description": "The engine that never sleeps. Our autonomous systems monitor, optimize, and execute complex workflows with surgical precision, freeing your team to focus on innovation.",
+      "features": {
+        "optimizing": "Self-Optimizing",
+        "scaling": "Auto-Scaling"
+      }
+    },
+    "interface": {
+      "label": "Interface",
+      "title": "Total Control",
+      "description": "Power is nothing without control. Our glass-morphic interface provides a unified view of your entire digital ecosystem, accessible from anywhere in the world.",
+      "demo_btn": "Initialize Demo",
+      "live": "LIVE",
+      "system_init": "> System.init()",
+      "loading": "> Loading modules...",
+      "core_online": "> Core: ONLINE",
+      "security_active": "> Security: ACTIVE",
+      "resource_usage": "Resource Usage",
+      "optimal": "Optimal"
+    }
+  },
+  "contact": {
+    "badge": "Get in Touch",
+    "title_prefix": "Let's Build",
+    "title_suffix": "The Future",
+    "description": "Ready to start your next project? We are here to help you turn your vision into reality.",
+    "info": {
+      "email_title": "Email Us",
+      "email_sub": "We reply within 24 hours",
+      "visit_title": "Visit HQ",
+      "visit_sub": "Turkey",
+      "call_title": "Call Us",
+      "call_sub": "Mon-Fri, 9am - 6pm",
+      "follow": "Follow Our Journey"
+    },
+    "form": {
+      "success_title": "Message Received",
+      "success_desc": "We have received your transmission. Our team will decode it and respond shortly.",
+      "send_another": "Send another message",
+      "name": "Name",
+      "email": "Email",
+      "subject": "Subject",
+      "subjects": {
+        "general": "General Inquiry",
+        "project": "Project Proposal",
+        "career": "Career Opportunity",
+        "tech": "Technical Support"
+      },
+      "message": "Message",
+      "message_placeholder": "Tell us about your vision...",
+      "submit_btn": "Send Message",
+      "submitting": "Transmitting..."
+    }
+  },
+  "career": {
+    "badge": "We are hiring",
+    "title_prefix": "Join the",
+    "title_suffix": "Neural Network",
+    "description": "We are looking for visionaries, engineers, and creators who want to shape the future of digital intelligence. Build the impossible with us.",
+    "positions": {
+      "p1_title": "Senior Full Stack Engineer",
+      "p1_desc": "Architect and build scalable systems using Next.js, Node.js, and Rust.",
+      "p2_title": "AI Research Scientist",
+      "p2_desc": "Push the boundaries of generative AI and neural network architectures.",
+      "p3_title": "DevOps Architect",
+      "p3_desc": "Design self-healing infrastructure and automated deployment pipelines.",
+      "p4_title": "Product Designer",
+      "p4_desc": "Craft intuitive and immersive user experiences for complex systems."
+    },
+    "apply": "Apply Position",
+    "form": {
+      "title": "Initialize Application",
+      "description": "Ready to deploy your skills? Fill out the form to begin the handshake protocol. We review every packet of data personally.",
+      "remote_title": "Remote-First Culture",
+      "remote_desc": "Work from anywhere in the matrix",
+      "tech_title": "Cutting-Edge Tech",
+      "tech_desc": "Access to the latest hardware & tools",
+      "success_title": "Application Uplinked",
+      "success_desc": "Your data has been successfully transmitted to our recruitment core.",
+      "submit_another": "Submit another application",
+      "full_name": "Full Name",
+      "email": "Email",
+      "position": "Position",
+      "select_position": "Select a position...",
+      "general_application": "General Application",
+      "linkedin": "LinkedIn URL",
+      "github": "GitHub / Portfolio",
+      "cover_letter": "Cover Letter",
+      "cover_letter_placeholder": "Tell us why you want to join the network...",
+      "submit_btn": "Submit Application",
+      "submitting": "Transmitting Data..."
+    }
+  },
+  "about": {
+    "system_identity": "System Identity",
+    "title_prefix": "We Are The",
+    "title_suffix": "Neural Network",
+    "description": "Rubinum is a collective of engineers, designers, and strategists building the digital infrastructure of tomorrow.",
+    "stats": {
+      "years": "Years of Innovation",
+      "projects": "Global Projects",
+      "team": "Team Members",
+      "code": "Lines of Code"
+    },
+    "manifesto": {
+      "label": "Our Manifesto",
+      "title_prefix": "We believe in code that",
+      "title_suffix": "breathes and evolves.",
+      "p1": "In a world saturated with static software, we build living systems. We believe that technology should not just be a tool, but an extension of human capability.",
+      "p2": "Our approach is rooted in \"Neural Infrastructure\" — a design philosophy that treats every application as a connected node in a larger intelligence network. We don't just write code; we architect ecosystems.",
+      "p3": "From the smallest micro-interaction to the most complex cloud architecture, every detail is meticulously crafted to ensure performance, scalability, and beauty."
+    },
+    "values": {
+      "title": "Our Core DNA",
+      "description": "The fundamental principles that guide every decision, every line of code, and every pixel we craft.",
+      "v1_title": "Visionary Thinking",
+      "v1_desc": "We don't just solve problems; we anticipate the future needs of the digital ecosystem.",
+      "v2_title": "Precision Engineering",
+      "v2_desc": "Every line of code is crafted with the accuracy of a Swiss watch and the power of a jet engine.",
+      "v3_title": "Unbreakable Security",
+      "v3_desc": "We build fortresses, not just applications. Security is woven into our DNA."
+    },
+    "cta": {
+      "title_prefix": "Ready to build the",
+      "title_suffix": "Impossible?",
+      "description": "Join us on our journey to architect the future. Whether you are a client or a creator, there is a place for you in the network.",
+      "primary": "Start a Project",
+      "secondary": "Join the Team"
+    }
+  },
+  "home": {
+    "about": {
+      "label": "Who We Are",
+      "title_prefix": "Architects of the",
+      "title_suffix": "Digital Renaissance",
+      "description": "Rubinum isn't just a software company. We are a collective of visionaries, engineers, and artists. We believe that true innovation happens at the intersection of rigorous engineering and boundless creativity.",
+      "cta": "Read our Manifesto",
+      "stats": {
+        "projects": "Active Projects",
+        "team": "Team Members",
+        "satisfaction": "Client Satisfaction"
+      },
+      "features": {
+        "vision": { "title": "Strategic Vision", "desc": "We don't just build; we plan for the decade ahead." },
+        "excellence": { "title": "Engineering Excellence", "desc": "Code that is as beautiful as it is functional." },
+        "design": { "title": "Human-Centric Design", "desc": "Technology that feels natural and empowering." }
+      }
+    },
+    "services": {
+      "label": "Our Services",
+      "title_prefix": "End-to-End",
+      "title_suffix": "Digital Solutions",
+      "description": "From concept to deployment, we are with you at every step of your digital transformation journey.",
+      "custom": {
+        "title": "Custom Software Development",
+        "desc": "Tailor-made solutions designed to fit your unique business processes. We build robust, scalable architectures from scratch."
+      },
+      "web": {
+        "title": "Web Applications",
+        "desc": "Scalable, high-performance web apps built with modern frameworks."
+      },
+      "mobile": {
+        "title": "Mobile Solutions",
+        "desc": "Native and cross-platform mobile applications for iOS and Android."
+      },
+      "cloud": {
+        "title": "Cloud Infrastructure",
+        "desc": "Secure and scalable cloud architecture design, DevOps and management."
+      },
+      "explore": "Explore"
+    },
+    "products": {
+      "label": "Our Products",
+      "title_prefix": "Innovations for",
+      "title_suffix": "Tomorrow",
+      "view_all": "View All Products",
+      "items": {
+        "cloud": { "name": "Rubinum Cloud", "desc": "Next-generation cloud infrastructure management with AI-driven optimization." },
+        "nexus": { "name": "Nexus API", "desc": "Unified API gateway for seamless integration of disparate systems and data sources." },
+        "shield": { "name": "Shield", "desc": "Enterprise-grade cybersecurity suite protecting your digital assets in real-time." }
+      }
+    },
+    "careers": {
+      "label": "Careers",
+      "title_prefix": "Join the",
+      "title_suffix": "Collective",
+      "description": "We are looking for visionaries who want to shape the future of digital technology.",
+      "positions": {
+        "fullstack": { "title": "Senior Full Stack Engineer", "dept": "Engineering" },
+        "ai": { "title": "AI Research Scientist", "dept": "R&D" },
+        "devops": { "title": "DevOps Architect", "dept": "Infrastructure" },
+        "design": { "title": "Product Designer", "dept": "Design" }
+      }
+    }
+  }
+}

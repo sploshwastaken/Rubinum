@@ -61,7 +61,7 @@ export function UnifiedSections({ children }: { children: React.ReactNode }) {
             opacity: [0.3, 0.5, 0.3],
           }}
           transition={{ duration: 8, repeat: Infinity, ease: "easeInOut" }}
-          className="absolute top-[-20%] right-[-10%] w-[800px] h-[800px] rounded-full blur-[120px] mix-blend-screen" 
+          className="absolute top-[-20%] right-[-10%] w-200 h-200 rounded-full blur-[120px] mix-blend-screen" 
         />
         <motion.div 
           style={{ backgroundColor: blob2Color }}
@@ -70,12 +70,12 @@ export function UnifiedSections({ children }: { children: React.ReactNode }) {
             opacity: [0.3, 0.5, 0.3],
           }}
           transition={{ duration: 10, repeat: Infinity, ease: "easeInOut" }}
-          className="absolute bottom-[-20%] left-[-10%] w-[800px] h-[800px] rounded-full blur-[120px] mix-blend-screen" 
+          className="absolute bottom-[-20%] left-[-10%] w-200 h-200 rounded-full blur-[120px] mix-blend-screen" 
         />
 
         {/* Moving Grid Background - Increased Opacity */}
         <motion.div 
-          className="absolute -inset-[100%]"
+          className="absolute -inset-full"
           style={{ 
             backgroundPosition: "center",
             backgroundSize: "100px 100px",

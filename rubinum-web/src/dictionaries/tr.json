@@ -1,0 +1,251 @@
+{
+  "nav": {
+    "about": "Hakkımızda",
+    "technology": "Teknoloji",
+    "career": "Kariyer",
+    "contact": "İletişim"
+  },
+  "hero": {
+    "badge": "Rubinum AI 2.0 ile Tanışın",
+    "title_prefix": "Biz Sizin",
+    "subtitle": "Rubinum, yarının dijital altyapısını inşa eden mühendisler, tasarımcılar ve stratejistlerden oluşan bir kolektiftir.",
+    "cta_primary": "Proje Başlat",
+    "cta_secondary": "Ekibe Katıl"
+  },
+  "footer": {
+    "tagline": "Dijital geleceği hassasiyet, zeka ve kusursuz entegrasyonla mimarlıyoruz. Bir sonraki sınıra yolculuğumuzda bize katılın.",
+    "subscribe_title": "Bültenimize abone olun",
+    "subscribe_placeholder": "E-posta adresiniz",
+    "solutions": "Çözümler",
+    "company": "Şirket",
+    "contact": "İletişim",
+    "rights": "Rubinum Inc. Tüm hakları saklıdır.",
+    "privacy": "Gizlilik Politikası",
+    "terms": "Hizmet Şartları",
+    "cookie": "Çerez Politikası"
+  },
+  "technology": {
+    "badge": "Teknoloji Yığınımız",
+    "title_prefix": "Gücünü",
+    "title_suffix": "Zekadan Alır",
+    "description": "Ölçeklenebilir, güvenli ve yüksek performanslı dijital çözümler oluşturmak için en gelişmiş teknolojilerden yararlanıyoruz.",
+    "core": {
+      "label": "Çekirdek",
+      "title": "Kuantum İşlem Birimi",
+      "description": "Tescilli çekirdek mimarimiz, neredeyse sıfır gecikmeyle saniyede milyonlarca işlemi gerçekleştirir. Sadece hızlı değil; öngörülüdür, yükü gerçekleşmeden önce uyarlar.",
+      "latency": "Gecikme",
+      "uptime": "Çalışma Süresi",
+      "badges": {
+        "rust": "Rust Çekirdeği",
+        "realtime": "Gerçek Zamanlı",
+        "distributed": "Dağıtık"
+      }
+    },
+    "security": {
+      "label": "Güvenlik Katmanı",
+      "title": "Hermetik Şifreleme",
+      "description": "Verileriniz kriptografik bir kasada saklanır. Ortaya çıkan tehditlere karşı gerçek zamanlı olarak gelişen askeri düzeyde şifreleme standartları kullanıyoruz.",
+      "features": {
+        "e2e": "Uçtan Uca Şifreleme",
+        "biometric": "Biyometrik Kimlik Doğrulama",
+        "zkp": "Sıfır Bilgi İspatları"
+      }
+    },
+    "engine": {
+      "label": "Motor",
+      "title": "Hiper Otomasyon",
+      "description": "Asla uyumayan motor. Otonom sistemlerimiz, karmaşık iş akışlarını cerrahi hassasiyetle izler, optimize eder ve yürütür, ekibinizin inovasyona odaklanmasını sağlar.",
+      "features": {
+        "optimizing": "Kendi Kendini Optimize Eden",
+        "scaling": "Otomatik Ölçeklenen"
+      }
+    },
+    "interface": {
+      "label": "Arayüz",
+      "title": "Tam Kontrol",
+      "description": "Kontrolsüz güç, güç değildir. Cam-morfik arayüzümüz, tüm dijital ekosisteminizin dünyanın her yerinden erişilebilen birleşik bir görünümünü sağlar.",
+      "demo_btn": "Demoyu Başlat",
+      "live": "CANLI",
+      "system_init": "> Sistem.başlat()",
+      "loading": "> Modüller yükleniyor...",
+      "core_online": "> Çekirdek: ÇEVRİMİÇİ",
+      "security_active": "> Güvenlik: AKTİF",
+      "resource_usage": "Kaynak Kullanımı",
+      "optimal": "Optimal"
+    }
+  },
+  "contact": {
+    "badge": "İletişime Geçin",
+    "title_prefix": "Geleceği",
+    "title_suffix": "İnşa Edelim",
+    "description": "Bir sonraki projenize başlamaya hazır mısınız? Vizyonunuzu gerçeğe dönüştürmenize yardımcı olmak için buradayız.",
+    "info": {
+      "email_title": "Bize E-posta Gönderin",
+      "email_sub": "24 saat içinde cevap veriyoruz",
+      "visit_title": "Merkezimizi Ziyaret Edin",
+      "visit_sub": "Türkiye",
+      "call_title": "Bizi Arayın",
+      "call_sub": "Pzt-Cum, 09:00 - 18:00",
+      "follow": "Yolculuğumuzu Takip Edin"
+    },
+    "form": {
+      "success_title": "Mesaj Alındı",
+      "success_desc": "İletinizi aldık. Ekibimiz şifresini çözecek ve kısa süre içinde yanıt verecektir.",
+      "send_another": "Başka bir mesaj gönder",
+      "name": "İsim",
+      "email": "E-posta",
+      "subject": "Konu",
+      "subjects": {
+        "general": "Genel Soru",
+        "project": "Proje Teklifi",
+        "career": "Kariyer Fırsatı",
+        "tech": "Teknik Destek"
+      },
+      "message": "Mesaj",
+      "message_placeholder": "Bize vizyonunuzdan bahsedin...",
+      "submit_btn": "Mesaj Gönder",
+      "submitting": "İletiliyor..."
+    }
+  },
+  "career": {
+    "badge": "İşe alıyoruz",
+    "title_prefix": "Katılın",
+    "title_suffix": "Sinir Ağına",
+    "description": "Dijital zekanın geleceğini şekillendirmek isteyen vizyonerler, mühendisler ve yaratıcılar arıyoruz. İmkansızı bizimle inşa edin.",
+    "positions": {
+      "p1_title": "Kıdemli Full Stack Mühendisi",
+      "p1_desc": "Next.js, Node.js ve Rust kullanarak ölçeklenebilir sistemler tasarlayın ve oluşturun.",
+      "p2_title": "Yapay Zeka Araştırma Bilimcisi",
+      "p2_desc": "Üretken yapay zeka ve sinir ağı mimarilerinin sınırlarını zorlayın.",
+      "p3_title": "DevOps Mimarı",
+      "p3_desc": "Kendi kendini iyileştiren altyapı ve otomatik dağıtım hatları tasarlayın.",
+      "p4_title": "Ürün Tasarımcısı",
+      "p4_desc": "Karmaşık sistemler için sezgisel ve sürükleyici kullanıcı deneyimleri oluşturun."
+    },
+    "apply": "Pozisyona Başvur",
+    "form": {
+      "title": "Başvuruyu Başlat",
+      "description": "Becerilerinizi dağıtmaya hazır mısınız? El sıkışma protokolünü başlatmak için formu doldurun. Her veri paketini şahsen inceliyoruz.",
+      "remote_title": "Önce Uzaktan Kültürü",
+      "remote_desc": "Matrisin herhangi bir yerinden çalışın",
+      "tech_title": "Son Teknoloji",
+      "tech_desc": "En son donanım ve araçlara erişim",
+      "success_title": "Başvuru Yüklendi",
+      "success_desc": "Verileriniz işe alım çekirdeğimize başarıyla iletildi.",
+      "submit_another": "Başka bir başvuru gönder",
+      "full_name": "Ad Soyad",
+      "email": "E-posta",
+      "position": "Pozisyon",
+      "select_position": "Bir pozisyon seçin...",
+      "general_application": "Genel Başvuru",
+      "linkedin": "LinkedIn URL",
+      "github": "GitHub / Portföy",
+      "cover_letter": "Ön Yazı",
+      "cover_letter_placeholder": "Neden ağa katılmak istediğinizi bize anlatın...",
+      "submit_btn": "Başvuruyu Gönder",
+      "submitting": "Veri İletiliyor..."
+    }
+  },
+  "about": {
+    "system_identity": "Sistem Kimliği",
+    "title_prefix": "Biz",
+    "title_suffix": "Sinir Ağıyız",
+    "description": "Rubinum, yarının dijital altyapısını inşa eden mühendisler, tasarımcılar ve stratejistlerden oluşan bir kolektiftir.",
+    "stats": {
+      "years": "Yıllık İnovasyon",
+      "projects": "Küresel Projeler",
+      "team": "Takım Üyeleri",
+      "code": "Kod Satırı"
+    },
+    "manifesto": {
+      "label": "Manifestomuz",
+      "title_prefix": "Nefes alan ve gelişen",
+      "title_suffix": "koda inanıyoruz.",
+      "p1": "Statik yazılımlarla dolu bir dünyada, yaşayan sistemler inşa ediyoruz. Teknolojinin sadece bir araç değil, insan yeteneğinin bir uzantısı olması gerektiğine inanıyoruz.",
+      "p2": "Yaklaşımımız \"Sinirsel Altyapı\"ya dayanmaktadır — her uygulamayı daha büyük bir zeka ağındaki bağlı bir düğüm olarak ele alan bir tasarım felsefesi. Sadece kod yazmıyoruz; ekosistemler mimarlıyoruz.",
+      "p3": "En küçük mikro etkileşimden en karmaşık bulut mimarisine kadar her detay, performans, ölçeklenebilirlik ve güzellik sağlamak için titizlikle işlenmiştir."
+    },
+    "values": {
+      "title": "Çekirdek DNA'mız",
+      "description": "Her kararı, her kod satırını ve işlediğimiz her pikseli yönlendiren temel ilkeler.",
+      "v1_title": "Vizyoner Düşünce",
+      "v1_desc": "Sadece sorunları çözmüyoruz; dijital ekosistemin gelecekteki ihtiyaçlarını öngörüyoruz.",
+      "v2_title": "Hassas Mühendislik",
+      "v2_desc": "Her kod satırı, bir İsviçre saatinin hassasiyeti ve bir jet motorunun gücüyle işlenmiştir.",
+      "v3_title": "Kırılmaz Güvenlik",
+      "v3_desc": "Sadece uygulamalar değil, kaleler inşa ediyoruz. Güvenlik DNA'mıza işlenmiştir."
+    },
+    "cta": {
+      "title_prefix": "İmkansızı inşa etmeye",
+      "title_suffix": "hazır mısınız?",
+      "description": "Geleceği mimarlamak için yolculuğumuzda bize katılın. İster müşteri ister yaratıcı olun, ağda sizin için bir yer var.",
+      "primary": "Proje Başlat",
+      "secondary": "Ekibe Katıl"
+    }
+  },
+  "home": {
+    "about": {
+      "label": "Biz Kimiz",
+      "title_prefix": "Mimarları",
+      "title_suffix": "Dijital Rönesansın",
+      "description": "Rubinum sadece bir yazılım şirketi değildir. Biz vizyonerler, mühendisler ve sanatçılardan oluşan bir kolektifiz. Gerçek inovasyonun titiz mühendislik ve sınırsız yaratıcılığın kesişiminde gerçekleştiğine inanıyoruz.",
+      "cta": "Manifestomuzu Oku",
+      "stats": {
+        "projects": "Aktif Projeler",
+        "team": "Takım Üyeleri",
+        "satisfaction": "Müşteri Memnuniyeti"
+      },
+      "features": {
+        "vision": { "title": "Stratejik Vizyon", "desc": "Sadece inşa etmiyoruz; önümüzdeki on yılı planlıyoruz." },
+        "excellence": { "title": "Mühendislik Mükemmelliği", "desc": "İşlevsel olduğu kadar güzel kodlar." },
+        "design": { "title": "İnsan Odaklı Tasarım", "desc": "Doğal ve güçlendirici hissettiren teknoloji." }
+      }
+    },
+    "services": {
+      "label": "Hizmetlerimiz",
+      "title_prefix": "Uçtan Uca",
+      "title_suffix": "Dijital Çözümler",
+      "description": "Fikirden dağıtıma kadar, dijital dönüşüm yolculuğunuzun her adımında yanınızdayız.",
+      "custom": {
+        "title": "Özel Yazılım Geliştirme",
+        "desc": "Benzersiz iş süreçlerinize uyacak şekilde tasarlanmış özel çözümler. Sıfırdan sağlam, ölçeklenebilir mimariler inşa ediyoruz."
+      },
+      "web": {
+        "title": "Web Uygulamaları",
+        "desc": "Modern çerçevelerle oluşturulmuş ölçeklenebilir, yüksek performanslı web uygulamaları."
+      },
+      "mobile": {
+        "title": "Mobil Çözümler",
+        "desc": "iOS ve Android için yerel ve çapraz platform mobil uygulamalar."
+      },
+      "cloud": {
+        "title": "Bulut Altyapısı",
+        "desc": "Güvenli ve ölçeklenebilir bulut mimarisi tasarımı, DevOps ve yönetimi."
+      },
+      "explore": "Keşfet"
+    },
+    "products": {
+      "label": "Ürünlerimiz",
+      "title_prefix": "Yarın İçin",
+      "title_suffix": "İnovasyonlar",
+      "view_all": "Tüm Ürünleri Gör",
+      "items": {
+        "cloud": { "name": "Rubinum Cloud", "desc": "Yapay zeka destekli optimizasyon ile yeni nesil bulut altyapı yönetimi." },
+        "nexus": { "name": "Nexus API", "desc": "Farklı sistemlerin ve veri kaynaklarının sorunsuz entegrasyonu için birleşik API ağ geçidi." },
+        "shield": { "name": "Shield", "desc": "Dijital varlıklarınızı gerçek zamanlı olarak koruyan kurumsal düzeyde siber güvenlik paketi." }
+      }
+    },
+    "careers": {
+      "label": "Kariyer",
+      "title_prefix": "Katıl",
+      "title_suffix": "Kolektife",
+      "description": "Dijital teknolojinin geleceğini şekillendirmek isteyen vizyonerler arıyoruz.",
+      "positions": {
+        "fullstack": { "title": "Kıdemli Full Stack Mühendisi", "dept": "Mühendislik" },
+        "ai": { "title": "Yapay Zeka Araştırma Bilimcisi", "dept": "Ar-Ge" },
+        "devops": { "title": "DevOps Mimarı", "dept": "Altyapı" },
+        "design": { "title": "Ürün Tasarımcısı", "dept": "Tasarım" }
+      }
+    }
+  }
+}

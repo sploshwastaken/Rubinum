@@ -89,3 +89,22 @@ The Footer is fixed at the bottom, and the main content "unveils" it by scrollin
 - **Navbar:** Updated logo to use "Reverse R" styling; simplified hover effects to blue gradient.
 - **Bug Fixes:** Fixed background bleeding issues on inner pages where Hero backgrounds covered the Footer.
 - **Contact Page:** Added a dedicated Hero section before the contact form.
+- **i18n & URL Canonicalization:** 
+    - Implemented clean URLs for the default language (English). `/en/*` redirects to `/*`.
+    - Middleware handles internal rewrites so Next.js can route `/*` to `src/app/[lang]/*`.
+    - Updated `Navbar`, `Footer`, and `LanguageSwitcher` to generate correct paths based on the current locale.
+- **Services Section:** Added missing titles and descriptions to the Services section on the homepage, synced with dictionaries.
+- **Page Transitions:** 
+    - Added a cinematic "System Boot" transition effect (`PageTransition.tsx`) using `template.tsx`.
+    - Features a "Initializing..." overlay with dynamic text based on the target page and current language (e.g., "> INITIALIZING TECHNOLOGY CORE...").
+    - Supports localized loading text for EN, TR, DE, RU.
+
+## 6. Internationalization (i18n)
+- **Strategy:** Sub-path routing (`/[lang]/...`).
+- **Default Locale:** `en` (English).
+- **URL Structure:**
+    - Default (English): `rubinum.com/about` (No `/en` prefix).
+    - Others: `rubinum.com/tr/about`, `rubinum.com/de/about`.
+- **Middleware:** Handles redirects (External `/en` -> `/`) and rewrites (Internal `/` -> `/en`).
+- **Dictionaries:** JSON files in `src/dictionaries/` (en, tr, de, ru).
+

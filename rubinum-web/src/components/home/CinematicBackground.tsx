@@ -38,7 +38,7 @@ export function CinematicBackground() {
   if (!isMounted) return null;
 
   return (
-    <div className="absolute inset-0 z-[-1] bg-[#030303] overflow-hidden">
+    <div className="absolute inset-0 z-[-1] bg-background overflow-hidden">
       <div className="sticky top-0 h-screen w-full overflow-hidden">
         <motion.div 
           style={{ opacity }}
@@ -57,7 +57,7 @@ export function CinematicBackground() {
         />
 
         {/* 2. The Grid (Perspective Floor) */}
-        <div className="absolute inset-0 bg-[linear-gradient(to_right,#ffffff05_1px,transparent_1px),linear-gradient(to_bottom,#ffffff05_1px,transparent_1px)] bg-[size:60px_60px] [mask-image:radial-gradient(ellipse_at_center,black_40%,transparent_100%)] opacity-20" />
+        <div className="absolute inset-0 bg-[linear-gradient(to_right,#ffffff05_1px,transparent_1px),linear-gradient(to_bottom,#ffffff05_1px,transparent_1px)] bg-size-[60px_60px] mask-[radial-gradient(ellipse_at_center,black_40%,transparent_100%)] opacity-20" />
 
         {/* 3. Starfield Layers */}
         <motion.div style={{ y: yStars1 }} className="absolute inset-0">
@@ -95,7 +95,7 @@ export function CinematicBackground() {
           {beams.map((beam, i) => (
             <motion.div
               key={`beam-${i}`}
-              className="w-[1px] h-full bg-gradient-to-b from-transparent via-white to-transparent"
+              className="w-px h-full bg-linear-to-b from-transparent via-white to-transparent"
               animate={{ opacity: [0.2, 0.5, 0.2], height: ['100%', '120%', '100%'] }}
               transition={{ duration: beam.duration, repeat: Infinity, delay: beam.delay }}
             />
