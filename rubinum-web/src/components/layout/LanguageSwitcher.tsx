@@ -62,6 +62,11 @@ export function LanguageSwitcher({ currentLang, isMobile = false }: { currentLan
     ru: "Русский"
   };
 
+  const handleLanguageChange = (locale: string) => {
+    document.cookie = `NEXT_LOCALE=${locale}; path=/; max-age=31536000; SameSite=Lax`;
+    setIsOpen(false);
+  };
+
   if (isMobile) {
     return (
       <div className="flex flex-wrap gap-3 mt-6 pt-6 border-t border-white/10">
@@ -69,6 +74,7 @@ export function LanguageSwitcher({ currentLang, isMobile = false }: { currentLan
           <Link
             key={locale}
             href={redirectedPathName(locale)}
+            onClick={() => handleLanguageChange(locale)}
             className={cn(
               "px-4 py-2 rounded-lg text-sm font-medium transition-all duration-300 border",
               currentLang === locale
@@ -113,7 +119,7 @@ export function LanguageSwitcher({ currentLang, isMobile = false }: { currentLan
                 <Link
                   key={locale}
                   href={redirectedPathName(locale)}
-                  onClick={() => setIsOpen(false)}
+                  onClick={() => handleLanguageChange(locale)}
                   className={cn(
                     "flex items-center gap-3 px-3 py-2 rounded-lg text-xs font-medium transition-colors",
                     currentLang === locale
