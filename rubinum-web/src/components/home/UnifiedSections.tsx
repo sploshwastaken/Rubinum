@@ -117,8 +117,8 @@ export function UnifiedSections({ children }: { children: React.ReactNode }) {
           style={{ 
             backgroundPosition: "center",
             backgroundSize: "60px 60px", // Smaller grid cells
-            backgroundImage: `linear-gradient(to right, rgba(255, 255, 255, 0.03) 1px, transparent 1px),
-                              linear-gradient(to bottom, rgba(255, 255, 255, 0.03) 1px, transparent 1px)`,
+            backgroundImage: `linear-gradient(to right, rgba(255, 255, 255, 0.08) 1px, transparent 1px),
+                              linear-gradient(to bottom, rgba(255, 255, 255, 0.08) 1px, transparent 1px)`,
             y: gridY,
             rotateX: "20deg", // Slight 3D perspective
             scale: 1.5,
@@ -158,33 +158,33 @@ export function UnifiedSections({ children }: { children: React.ReactNode }) {
         />
 
         {/* Layer 3: Background Symbols (Small, Slow, Many) */}
-        <motion.div style={{ y: y3, opacity: 0.1 }} className="absolute top-[10%] left-[20%] text-4xl font-mono text-white/20 font-bold select-none">;</motion.div>
-        <motion.div style={{ y: y3, opacity: 0.1 }} className="absolute top-[30%] right-[10%] text-4xl font-mono text-white/20 font-bold select-none">*</motion.div>
-        <motion.div style={{ y: y3, opacity: 0.1 }} className="absolute bottom-[15%] left-[30%] text-4xl font-mono text-white/20 font-bold select-none">_</motion.div>
-        <motion.div style={{ y: y3, opacity: 0.1 }} className="absolute top-[50%] right-[40%] text-3xl font-mono text-white/20 font-bold select-none">&&</motion.div>
-        <motion.div style={{ y: y3, opacity: 0.08 }} className="absolute top-[15%] left-[60%] text-2xl font-mono text-white/20 font-bold select-none">::</motion.div>
-        <motion.div style={{ y: y3, opacity: 0.08 }} className="absolute bottom-[40%] left-[10%] text-3xl font-mono text-white/20 font-bold select-none">()</motion.div>
-        <motion.div style={{ y: y3, opacity: 0.08 }} className="absolute top-[5%] right-[30%] text-2xl font-mono text-white/20 font-bold select-none">#</motion.div>
-        <motion.div style={{ y: y3, opacity: 0.08 }} className="absolute bottom-[20%] right-[20%] text-3xl font-mono text-white/20 font-bold select-none">?</motion.div>
-        <motion.div style={{ y: y3, opacity: 0.08 }} className="absolute top-[80%] left-[50%] text-2xl font-mono text-white/20 font-bold select-none">0x</motion.div>
+        <motion.div style={{ y: y3, opacity: 0.25 }} className="absolute top-[10%] left-[20%] text-4xl font-mono text-white/20 font-bold select-none">;</motion.div>
+        <motion.div style={{ y: y3, opacity: 0.25 }} className="absolute top-[30%] right-[10%] text-4xl font-mono text-white/20 font-bold select-none">*</motion.div>
+        <motion.div style={{ y: y3, opacity: 0.25 }} className="absolute bottom-[15%] left-[30%] text-4xl font-mono text-white/20 font-bold select-none">_</motion.div>
+        <motion.div style={{ y: y3, opacity: 0.25 }} className="absolute top-[50%] right-[40%] text-3xl font-mono text-white/20 font-bold select-none">&&</motion.div>
+        <motion.div style={{ y: y3, opacity: 0.2 }} className="absolute top-[15%] left-[60%] text-2xl font-mono text-white/20 font-bold select-none">::</motion.div>
+        <motion.div style={{ y: y3, opacity: 0.2 }} className="absolute bottom-[40%] left-[10%] text-3xl font-mono text-white/20 font-bold select-none">()</motion.div>
+        <motion.div style={{ y: y3, opacity: 0.2 }} className="absolute top-[5%] right-[30%] text-2xl font-mono text-white/20 font-bold select-none">#</motion.div>
+        <motion.div style={{ y: y3, opacity: 0.2 }} className="absolute bottom-[20%] right-[20%] text-3xl font-mono text-white/20 font-bold select-none">?</motion.div>
+        <motion.div style={{ y: y3, opacity: 0.2 }} className="absolute top-[80%] left-[50%] text-2xl font-mono text-white/20 font-bold select-none">0x</motion.div>
 
         {/* Layer 2: Midground Symbols (Medium, Normal Speed) */}
-        <motion.div style={{ y: y2, rotate: rotate3, opacity: 0.15 }} className="absolute top-[40%] left-[5%] text-6xl font-mono text-cyan-500/30 font-bold select-none">{`//`}</motion.div>
-        <motion.div style={{ y: y2, rotate: -15, opacity: 0.15 }} className="absolute top-[15%] right-[25%] text-6xl font-mono text-indigo-500/30 font-bold select-none">{`[]`}</motion.div>
-        <motion.div style={{ y: y2, opacity: 0.15 }} className="absolute bottom-[30%] right-[5%] text-6xl font-mono text-emerald-500/30 font-bold select-none">{`!=`}</motion.div>
-        <motion.div style={{ y: y2, rotate: 10, opacity: 0.12 }} className="absolute top-[60%] left-[15%] text-5xl font-mono text-purple-500/30 font-bold select-none">await</motion.div>
-        <motion.div style={{ y: y2, rotate: -5, opacity: 0.12 }} className="absolute bottom-[10%] right-[40%] text-5xl font-mono text-pink-500/30 font-bold select-none">npm</motion.div>
-        <motion.div style={{ y: y2, rotate: 20, opacity: 0.12 }} className="absolute top-[25%] left-[40%] text-5xl font-mono text-blue-500/30 font-bold select-none">git</motion.div>
-        <motion.div style={{ y: y2, rotate: -10, opacity: 0.12 }} className="absolute top-[70%] right-[30%] text-5xl font-mono text-orange-500/30 font-bold select-none">sudo</motion.div>
-        <motion.div style={{ y: y2, rotate: 5, opacity: 0.12 }} className="absolute bottom-[50%] left-[80%] text-5xl font-mono text-green-500/30 font-bold select-none">fn</motion.div>
+        <motion.div style={{ y: y2, rotate: rotate3, opacity: 0.35 }} className="absolute top-[40%] left-[5%] text-6xl font-mono text-cyan-500/30 font-bold select-none">{`//`}</motion.div>
+        <motion.div style={{ y: y2, rotate: -15, opacity: 0.35 }} className="absolute top-[15%] right-[25%] text-6xl font-mono text-indigo-500/30 font-bold select-none">{`[]`}</motion.div>
+        <motion.div style={{ y: y2, opacity: 0.35 }} className="absolute bottom-[30%] right-[5%] text-6xl font-mono text-emerald-500/30 font-bold select-none">{`!=`}</motion.div>
+        <motion.div style={{ y: y2, rotate: 10, opacity: 0.3 }} className="absolute top-[60%] left-[15%] text-5xl font-mono text-purple-500/30 font-bold select-none">await</motion.div>
+        <motion.div style={{ y: y2, rotate: -5, opacity: 0.3 }} className="absolute bottom-[10%] right-[40%] text-5xl font-mono text-pink-500/30 font-bold select-none">npm</motion.div>
+        <motion.div style={{ y: y2, rotate: 20, opacity: 0.3 }} className="absolute top-[25%] left-[40%] text-5xl font-mono text-blue-500/30 font-bold select-none">git</motion.div>
+        <motion.div style={{ y: y2, rotate: -10, opacity: 0.3 }} className="absolute top-[70%] right-[30%] text-5xl font-mono text-orange-500/30 font-bold select-none">sudo</motion.div>
+        <motion.div style={{ y: y2, rotate: 5, opacity: 0.3 }} className="absolute bottom-[50%] left-[80%] text-5xl font-mono text-green-500/30 font-bold select-none">fn</motion.div>
 
         {/* Layer 1: Foreground Symbols (Large, Fast, Blurry) */}
-        <motion.div style={{ y: y1, rotate: rotate1, x: 50, opacity: 0.2, filter: 'blur(2px)' }} className="absolute top-[20%] left-[10%] text-8xl font-mono text-blue-500/40 font-bold select-none">{`{ }`}</motion.div>
-        <motion.div style={{ y: y1, rotate: rotate2, x: -50, opacity: 0.15, filter: 'blur(3px)' }} className="absolute top-[60%] right-[15%] text-9xl font-mono text-purple-500/40 font-bold select-none">{`</>`}</motion.div>
-        <motion.div style={{ y: y1, rotate: rotate1, opacity: 0.15, filter: 'blur(1px)' }} className="absolute bottom-[10%] left-[20%] text-7xl font-mono text-blue-400/40 font-bold select-none">{`=>`}</motion.div>
-        <motion.div style={{ y: y1, rotate: rotate2, x: 20, opacity: 0.1, filter: 'blur(2px)' }} className="absolute top-[35%] right-[5%] text-8xl font-mono text-red-500/40 font-bold select-none">404</motion.div>
-        <motion.div style={{ y: y1, rotate: -rotate1, x: -20, opacity: 0.1, filter: 'blur(2px)' }} className="absolute bottom-[40%] left-[5%] text-8xl font-mono text-yellow-500/40 font-bold select-none">NaN</motion.div>
-        <motion.div style={{ y: y1, rotate: rotate3, opacity: 0.1, filter: 'blur(1px)' }} className="absolute top-[5%] left-[40%] text-7xl font-mono text-cyan-500/40 font-bold select-none">null</motion.div>
+        <motion.div style={{ y: y1, rotate: rotate1, x: 50, opacity: 0.45, filter: 'blur(2px)' }} className="absolute top-[20%] left-[10%] text-8xl font-mono text-blue-500/40 font-bold select-none">{`{ }`}</motion.div>
+        <motion.div style={{ y: y1, rotate: rotate2, x: -50, opacity: 0.4, filter: 'blur(3px)' }} className="absolute top-[60%] right-[15%] text-9xl font-mono text-purple-500/40 font-bold select-none">{`</>`}</motion.div>
+        <motion.div style={{ y: y1, rotate: rotate1, opacity: 0.4, filter: 'blur(1px)' }} className="absolute bottom-[10%] left-[20%] text-7xl font-mono text-blue-400/40 font-bold select-none">{`=>`}</motion.div>
+        <motion.div style={{ y: y1, rotate: rotate2, x: 20, opacity: 0.35, filter: 'blur(2px)' }} className="absolute top-[35%] right-[5%] text-8xl font-mono text-red-500/40 font-bold select-none">404</motion.div>
+        <motion.div style={{ y: y1, rotate: -rotate1, x: -20, opacity: 0.35, filter: 'blur(2px)' }} className="absolute bottom-[40%] left-[5%] text-8xl font-mono text-yellow-500/40 font-bold select-none">NaN</motion.div>
+        <motion.div style={{ y: y1, rotate: rotate3, opacity: 0.35, filter: 'blur(1px)' }} className="absolute top-[5%] left-[40%] text-7xl font-mono text-cyan-500/40 font-bold select-none">null</motion.div>
 
         {/* Digital Noise */}
         <div className="absolute inset-0 bg-[url('https://grainy-gradients.vercel.app/noise.svg')] opacity-[0.04] mix-blend-overlay"></div>
