@@ -84,11 +84,11 @@ export function Hero() {
             initial={{ opacity: 0, y: -20 }}
             animate={{ opacity: 1, y: 0 }}
             transition={{ duration: 0.6, delay: 0.2 }}
-            className="inline-flex items-center gap-2 px-4 py-2 rounded-full bg-white/5 border border-white/10 backdrop-blur-md mb-8 hover:bg-white/10 transition-colors cursor-pointer"
+            className="inline-flex items-center gap-2 px-3 py-1.5 md:px-4 md:py-2 rounded-full bg-white/5 border border-white/10 backdrop-blur-md mb-6 md:mb-8 hover:bg-white/10 transition-colors cursor-pointer max-w-[90vw]"
           >
-            <span className="flex h-2 w-2 rounded-full bg-blue-500 animate-pulse" />
-            <span className="text-sm text-gray-300">Introducing Rubinum AI 2.0</span>
-            <ArrowRight className="w-3 h-3 text-gray-400" />
+            <span className="flex h-1.5 w-1.5 md:h-2 md:w-2 rounded-full bg-blue-500 animate-pulse shrink-0" />
+            <span className="text-xs md:text-sm text-gray-300 truncate">Introducing Rubinum AI 2.0</span>
+            <ArrowRight className="w-3 h-3 text-gray-400 shrink-0" />
           </motion.div>
         </Link>
 
@@ -96,12 +96,12 @@ export function Hero() {
           initial={{ opacity: 0, y: 20 }}
           animate={{ opacity: 1, y: 0 }}
           transition={{ duration: 0.8, delay: 0.4 }}
-          className="text-5xl md:text-7xl lg:text-8xl font-bold tracking-tighter text-white mb-8 leading-tight"
+          className="text-4xl sm:text-5xl md:text-7xl lg:text-8xl font-bold tracking-tighter text-white mb-6 md:mb-8 leading-tight break-words"
         >
-          Your Digital <br />
-          <span className="text-transparent bg-clip-text bg-gradient-to-r from-blue-400 via-purple-400 to-orange-400">
+          Your Digital <br className="hidden sm:block" />
+          <span className="text-transparent bg-clip-text bg-gradient-to-r from-blue-400 via-purple-400 to-orange-400 block sm:inline mt-2 sm:mt-0">
             {text}
-            <span className="inline-block w-[3px] h-[0.8em] bg-white ml-2 animate-cursor-blink align-bottom mb-1"></span>
+            <span className="inline-block w-[2px] md:w-[3px] h-[0.8em] bg-white ml-1 md:ml-2 animate-cursor-blink align-bottom mb-1"></span>
           </span>
         </motion.h1>
 
@@ -109,7 +109,7 @@ export function Hero() {
           initial={{ opacity: 0, y: 20 }}
           animate={{ opacity: 1, y: 0 }}
           transition={{ duration: 0.8, delay: 0.6 }}
-          className="text-lg md:text-xl text-gray-400 max-w-2xl mx-auto mb-12 leading-relaxed"
+          className="text-base sm:text-lg md:text-xl text-gray-400 max-w-[90%] md:max-w-2xl mx-auto mb-8 md:mb-12 leading-relaxed"
         >
           Rubinum handles your entire digital infrastructure. From cloud architecture to AI-driven development, we are the engine behind your growth.
         </motion.p>
@@ -118,15 +118,15 @@ export function Hero() {
           initial={{ opacity: 0, y: 20 }}
           animate={{ opacity: 1, y: 0 }}
           transition={{ duration: 0.8, delay: 0.8 }}
-          className="flex flex-col md:flex-row items-center justify-center gap-4"
+          className="flex flex-col sm:flex-row items-center justify-center gap-4 w-full px-4 sm:px-0"
         >
-          <div className="relative group">
-            <div className="absolute -inset-1 bg-gradient-to-r from-blue-600 to-purple-600 rounded-full blur opacity-25 group-hover:opacity-75 transition duration-1000 group-hover:duration-200" />
-            <button className="relative px-8 py-4 bg-white text-black font-bold rounded-full flex items-center gap-2 hover:bg-gray-100 transition-all">
+          <div className="relative group w-full sm:w-auto">
+            <div className="absolute -inset-1 bg-gradient-to-r from-blue-600 to-purple-600 rounded-full blur opacity-25 group-hover:opacity-75 transition duration-1000 group-hover:duration-200 hidden sm:block" />
+            <button className="relative w-full sm:w-auto px-6 py-3 md:px-8 md:py-4 bg-white text-black font-bold rounded-full flex items-center justify-center gap-2 hover:bg-gray-100 transition-all text-sm md:text-base">
               Start Building <Sparkles className="w-4 h-4" />
             </button>
           </div>
-          <button className="px-8 py-4 text-white border border-white/10 rounded-full hover:bg-white/5 transition-all backdrop-blur-sm">
+          <button className="w-full sm:w-auto px-6 py-3 md:px-8 md:py-4 text-white border border-white/10 rounded-full hover:bg-white/5 transition-all backdrop-blur-sm text-sm md:text-base">
             View Documentation
           </button>
         </motion.div>

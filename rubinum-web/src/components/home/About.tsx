@@ -43,58 +43,58 @@ export function About() {
   const y = useTransform(scrollYProgress, [0, 1], [50, -50]);
   
   return (
-    <section id="about" ref={containerRef} className="py-32 relative z-10">
-      <div className="container mx-auto px-6 relative z-10">
-        <div className="flex flex-col lg:flex-row gap-20 items-center">
+    <section id="about" ref={containerRef} className="py-20 md:py-32 relative z-10">
+      <div className="container mx-auto px-4 md:px-6 relative z-10">
+        <div className="flex flex-col lg:flex-row gap-12 lg:gap-20 items-center">
           
           {/* Left Content */}
-          <div className="lg:w-1/2">
+          <div className="w-full lg:w-1/2">
             <motion.div
               initial={{ opacity: 0, x: -50 }}
               whileInView={{ opacity: 1, x: 0 }}
               transition={{ duration: 0.8 }}
               viewport={{ once: true }}
             >
-              <div className="flex items-center gap-2 mb-6">
-                <span className="h-[1px] w-12 bg-blue-500"></span>
-                <h2 className="text-sm font-medium tracking-[0.3em] text-blue-400 uppercase">
+              <div className="flex items-center gap-2 mb-4 md:mb-6">
+                <span className="h-[1px] w-8 md:w-12 bg-blue-500"></span>
+                <h2 className="text-xs md:text-sm font-medium tracking-[0.3em] text-blue-400 uppercase">
                   Who We Are
                 </h2>
               </div>
               
-              <h3 className="text-4xl md:text-6xl font-bold text-white mb-8 leading-tight">
+              <h3 className="text-3xl sm:text-4xl md:text-6xl font-bold text-white mb-6 md:mb-8 leading-tight">
                 Architects of the <br />
                 <span className="text-transparent bg-clip-text bg-gradient-to-r from-blue-400 to-purple-500">
                   Digital Renaissance
                 </span>
               </h3>
               
-              <p className="text-lg text-gray-400 mb-10 leading-relaxed">
+              <p className="text-base md:text-lg text-gray-400 mb-8 md:mb-10 leading-relaxed">
                 Rubinum isn't just a software company. We are a collective of visionaries, engineers, and artists. We believe that true innovation happens at the intersection of rigorous engineering and boundless creativity.
               </p>
               
-              <div className="space-y-4 mb-12">
+              <div className="space-y-3 md:space-y-4 mb-8 md:mb-12">
                 {features.map((item, index) => (
                   <motion.div 
                     key={index}
                     initial={{ opacity: 0, x: -20 }}
                     whileInView={{ opacity: 1, x: 0 }}
                     transition={{ delay: index * 0.1 }}
-                    className="group flex items-start gap-4 p-4 rounded-2xl hover:bg-white/5 transition-colors border border-transparent hover:border-white/5"
+                    className="group flex items-start gap-3 md:gap-4 p-3 md:p-4 rounded-2xl hover:bg-white/5 transition-colors border border-transparent hover:border-white/5"
                   >
-                    <div className={cn("mt-1 p-2 rounded-lg border transition-colors", item.color)}>
-                      <item.icon className="w-5 h-5" />
+                    <div className={cn("mt-1 p-1.5 md:p-2 rounded-lg border transition-colors shrink-0", item.color)}>
+                      <item.icon className="w-4 h-4 md:w-5 md:h-5" />
                     </div>
                     <div>
-                      <h4 className="text-white font-bold text-lg mb-1">{item.title}</h4>
-                      <p className="text-sm text-gray-400 leading-relaxed">{item.desc}</p>
+                      <h4 className="text-white font-bold text-base md:text-lg mb-1">{item.title}</h4>
+                      <p className="text-xs md:text-sm text-gray-400 leading-relaxed">{item.desc}</p>
                     </div>
                   </motion.div>
                 ))}
               </div>
 
-              <Link href="/about">
-                <button className="group flex items-center gap-2 text-white px-6 py-3 rounded-full bg-white/5 border border-white/10 hover:bg-white/10 hover:border-white/20 transition-all">
+              <Link href="/about" className="block w-full sm:w-auto">
+                <button className="w-full sm:w-auto group flex items-center justify-center gap-2 text-white px-6 py-3 rounded-full bg-white/5 border border-white/10 hover:bg-white/10 hover:border-white/20 transition-all text-sm md:text-base">
                   <span>Read our Manifesto</span>
                   <ArrowRight className="w-4 h-4 group-hover:translate-x-1 transition-transform" />
                 </button>

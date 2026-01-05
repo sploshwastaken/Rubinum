@@ -1,3 +1,4 @@
+import { Metadata } from "next";
 import { Hero } from "@/components/home/Hero";
 import { About } from "@/components/home/About";
 import { Services } from "@/components/home/Services";
@@ -5,6 +6,14 @@ import { Products } from "@/components/home/Products";
 import { Careers } from "@/components/home/Careers";
 import { CinematicBackground } from "@/components/home/CinematicBackground";
 import { UnifiedSections } from "@/components/home/UnifiedSections";
+
+export const metadata: Metadata = {
+  title: "Rubinum | Home",
+  description: "Welcome to Rubinum. We build living systems and neural infrastructure for the digital age.",
+  alternates: {
+    canonical: "https://rubinum.com",
+  },
+};
 
 export default function Home() {
   return (

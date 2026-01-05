@@ -46,19 +46,20 @@ const positions = [
 
 export function Careers() {
   return (
-    <section id="careers" className="py-32 relative z-10">
-      <div className="container mx-auto px-6">
-        <div className="flex flex-col md:flex-row justify-between items-end mb-20">
+    <section id="careers" className="py-20 md:py-32 relative z-10">
+      <div className="container mx-auto px-4 md:px-6">
+        <div className="flex flex-col md:flex-row justify-between items-end mb-12 md:mb-20">
           <motion.div
             initial={{ opacity: 0, y: 20 }}
             whileInView={{ opacity: 1, y: 0 }}
             viewport={{ once: true, amount: 0.2 }}
             transition={{ duration: 0.6 }}
+            className="w-full md:w-auto"
           >
-            <h2 className="text-sm font-medium tracking-[0.3em] text-blue-400 uppercase mb-6">
+            <h2 className="text-xs md:text-sm font-medium tracking-[0.3em] text-blue-400 uppercase mb-4 md:mb-6">
               Careers
             </h2>
-            <h3 className="text-4xl md:text-6xl font-bold text-white tracking-tight">
+            <h3 className="text-3xl sm:text-4xl md:text-6xl font-bold text-white tracking-tight">
               Join the <br />
               <span className="text-transparent bg-clip-text bg-gradient-to-r from-blue-400 to-purple-500">
                 Collective
@@ -71,13 +72,13 @@ export function Careers() {
             whileInView={{ opacity: 1, x: 0 }}
             viewport={{ once: true, amount: 0.2 }}
             transition={{ duration: 0.6, delay: 0.2 }}
-            className="text-gray-400 max-w-md mt-8 md:mt-0 text-lg"
+            className="text-gray-400 max-w-md mt-6 md:mt-0 text-base md:text-lg"
           >
             We are looking for visionaries who want to shape the future of digital technology.
           </motion.p>
         </div>
 
-        <div className="grid grid-cols-1 md:grid-cols-2 gap-6">
+        <div className="grid grid-cols-1 md:grid-cols-2 gap-4 md:gap-6">
           {positions.map((position, index) => (
             <Link href="/career" key={index} className="block">
               <motion.div
@@ -86,7 +87,7 @@ export function Careers() {
                 viewport={{ once: true, amount: 0.2 }}
                 transition={{ duration: 0.5, delay: index * 0.1 }}
                 className={cn(
-                  "group relative p-8 rounded-3xl bg-zinc-900/50 backdrop-blur-md border border-white/10 transition-all duration-500 hover:bg-zinc-900/80",
+                  "group relative p-6 md:p-8 rounded-3xl bg-zinc-900/50 backdrop-blur-md border border-white/10 transition-all duration-500 hover:bg-zinc-900/80",
                   position.border
                 )}
               >

@@ -42,44 +42,45 @@ export function Products() {
   const x = useTransform(scrollYProgress, [0, 1], [100, -100]);
 
   return (
-    <section id="products" ref={containerRef} className="py-32 relative z-10">
-      <div className="container mx-auto px-6 relative z-10">
-        <div className="flex flex-col md:flex-row justify-between items-end mb-20">
+    <section id="products" ref={containerRef} className="py-20 md:py-32 relative z-10">
+      <div className="container mx-auto px-4 md:px-6 relative z-10">
+        <div className="flex flex-col md:flex-row justify-between items-end mb-12 md:mb-20">
           <motion.div
             initial={{ opacity: 0, y: 20 }}
             whileInView={{ opacity: 1, y: 0 }}
             transition={{ duration: 0.6 }}
             viewport={{ once: true }}
+            className="w-full md:w-auto"
           >
-            <h2 className="text-sm font-medium tracking-[0.3em] text-blue-400 uppercase mb-6">
+            <h2 className="text-xs md:text-sm font-medium tracking-[0.3em] text-blue-400 uppercase mb-4 md:mb-6">
               Our Products
             </h2>
-            <h3 className="text-4xl md:text-5xl font-bold text-white">
+            <h3 className="text-3xl sm:text-4xl md:text-5xl font-bold text-white">
               Innovations for <br />
               <span className="text-transparent bg-clip-text bg-gradient-to-r from-white to-gray-500">Tomorrow</span>
             </h3>
           </motion.div>
-          <Link href="/technology">
+          <Link href="/technology" className="w-full md:w-auto mt-6 md:mt-0">
             <motion.button 
               whileHover={{ x: 5 }}
-              className="hidden md:flex items-center gap-2 text-white border-b border-white/30 pb-1 hover:border-white transition-colors mt-8 md:mt-0"
+              className="flex items-center gap-2 text-white border-b border-white/30 pb-1 hover:border-white transition-colors text-sm md:text-base"
             >
               View All Products <ArrowUpRight className="w-4 h-4" />
             </motion.button>
           </Link>
         </div>
 
-        <div className="grid grid-cols-1 md:grid-cols-3 gap-8">
+        <div className="grid grid-cols-1 md:grid-cols-3 gap-6 md:gap-8">
           {products.map((product, index) => (
             <Link href="/technology" key={product.id} className="block">
               <motion.div
                 initial={{ opacity: 0, y: 50 }}
-              whileInView={{ opacity: 1, y: 0 }}
-              transition={{ duration: 0.5, delay: index * 0.2 }}
-              viewport={{ once: true }}
-              whileHover={{ y: -10 }}
-              className="group relative h-[450px] bg-zinc-900/50 rounded-3xl border border-white/5 p-8 flex flex-col justify-between overflow-hidden"
-            >
+                whileInView={{ opacity: 1, y: 0 }}
+                transition={{ duration: 0.5, delay: index * 0.2 }}
+                viewport={{ once: true }}
+                whileHover={{ y: -10 }}
+                className="group relative h-auto min-h-[350px] md:h-[450px] bg-zinc-900/50 rounded-3xl border border-white/5 p-6 md:p-8 flex flex-col justify-between overflow-hidden"
+              >
               {/* Hover Gradient Background */}
               <div className={`absolute inset-0 bg-gradient-to-br ${product.color} opacity-0 group-hover:opacity-10 transition-opacity duration-500`} />
               

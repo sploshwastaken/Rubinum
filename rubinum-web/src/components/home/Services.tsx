@@ -57,9 +57,11 @@ function ServiceCard({ service, index }: { service: typeof services[0], index: n
       transition={{ duration: 0.5, delay: index * 0.1 }}
       viewport={{ once: true, amount: 0.2 }}
       className={cn(
-        "group relative p-8 rounded-3xl bg-zinc-900/50 backdrop-blur-md border border-white/10 transition-all duration-500 overflow-hidden flex flex-col justify-between",
+        "group relative p-6 md:p-8 rounded-3xl bg-zinc-900/50 backdrop-blur-md border border-white/10 transition-all duration-500 overflow-hidden flex flex-col justify-between h-full min-h-[300px]",
         service.className,
-        service.borderHover
+        service.borderHover,
+        // Mobile override: always col-span-1 on small screens
+        "col-span-1"
       )}
     >
       {/* Hover Gradient Background - Stronger & Colorful */}
@@ -67,20 +69,20 @@ function ServiceCard({ service, index }: { service: typeof services[0], index: n
       
       <div className="relative z-10">
         {/* Icon Box */}
-        <div className={cn("w-14 h-14 rounded-2xl bg-white/5 border border-white/10 flex items-center justify-center mb-6 transition-all duration-500 group-hover:scale-110 group-hover:bg-black/20", service.iconColor)}>
-          <service.icon className="w-7 h-7" />
+        <div className={cn("w-12 h-12 md:w-14 md:h-14 rounded-2xl bg-white/5 border border-white/10 flex items-center justify-center mb-4 md:mb-6 transition-all duration-500 group-hover:scale-110 group-hover:bg-black/20", service.iconColor)}>
+          <service.icon className="w-6 h-6 md:w-7 md:h-7" />
         </div>
         
-        <h3 className="text-2xl font-bold text-white mb-3 tracking-tight group-hover:text-white transition-colors">{service.title}</h3>
-        <p className="text-gray-400 leading-relaxed group-hover:text-gray-300 transition-colors mb-8 max-w-md">
+        <h3 className="text-xl md:text-2xl font-bold text-white mb-2 md:mb-3 tracking-tight group-hover:text-white transition-colors">{service.title}</h3>
+        <p className="text-sm md:text-base text-gray-400 leading-relaxed group-hover:text-gray-300 transition-colors mb-6 md:mb-8 max-w-md">
           {service.description}
         </p>
 
         {/* Tech Tags - Colored on Hover */}
-        <div className="flex flex-wrap gap-2 mt-auto">
+        <div className="flex flex-wrap gap-1.5 md:gap-2 mt-auto">
           {service.tags.map((tag, i) => (
             <span key={i} className={cn(
-              "px-3 py-1 text-xs font-medium rounded-full border border-white/5 bg-white/5 text-gray-400 transition-colors duration-300",
+              "px-2 py-0.5 md:px-3 md:py-1 text-[10px] md:text-xs font-medium rounded-full border border-white/5 bg-white/5 text-gray-400 transition-colors duration-300",
               "group-hover:border-white/10 group-hover:text-white group-hover:bg-white/10"
             )}>
               {tag}
