@@ -1,7 +1,7 @@
 'use client';
 
 import { motion, useScroll, useTransform } from 'framer-motion';
-import { useRef } from 'react';
+import { useRef, useState, useEffect } from 'react';
 
 export function UnifiedSections({ children }: { children: React.ReactNode }) {
   const containerRef = useRef<HTMLDivElement>(null);
@@ -50,14 +50,18 @@ export function UnifiedSections({ children }: { children: React.ReactNode }) {
   const gridY = useTransform(scrollYProgress, [0, 1], ["0%", "50%"]);
 
   // Generate random stars for the background
-  const stars = Array.from({ length: 50 }).map((_, i) => ({
-    id: i,
-    top: `${Math.random() * 100}%`,
-    left: `${Math.random() * 100}%`,
-    size: Math.random() * 2 + 1,
-    duration: Math.random() * 3 + 2,
-    delay: Math.random() * 2
-  }));
+  const [stars, setStars] = useState<Array<{id: number, top: string, left: string, size: number, duration: number, delay: number}>>([]);
+
+  useEffect(() => {
+    setStars(Array.from({ length: 50 }).map((_, i) => ({
+      id: i,
+      top: `${Math.random() * 100}%`,
+      left: `${Math.random() * 100}%`,
+      size: Math.random() * 2 + 1,
+      duration: Math.random() * 3 + 2,
+      delay: Math.random() * 2
+    })));
+  }, []);
 
   return (
     <div ref={containerRef} className="relative">
